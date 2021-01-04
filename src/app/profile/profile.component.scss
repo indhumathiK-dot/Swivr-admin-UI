@@ -1,0 +1,114 @@
+::ng-deep #test .mat-tab-group.mat-primary .mat-ink-bar {
+  width: 100% !important;
+}
+.table-fields mat-form-field {
+  font-size: 15px;
+}
+
+table {
+  width: 100%;
+  border: 1px solid lightgray;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.po-details-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.po-details-container > div {
+  margin-right: 150px;
+  padding: 5px;
+}
+.flex-container > div {
+  margin-right: 150px;
+  padding: 5px;
+}
+.sub-total-style {
+  margin-top: 20px;
+}
+
+.left-half {
+  left: 0;
+  width: 20%;
+  display: inline-block;
+  text-align: right;
+  color: #545454;
+}
+.right-half {
+  right: 0;
+  width: 50%;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.line-height {
+  line-height: 3;
+}
+
+.upload-half {
+  left: 0;
+  width: 12%;
+  display: inline-block;
+  margin-left: 65px;
+}
+.header {
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 0;
+  color: gray;
+}
+
+#ticketCom {
+  background: white;
+}
+
+#tickets-cont-dev {
+  background: white;
+  min-height: 700px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+}
+
+#tickets-cont-dev mat-card {
+  margin:  0;
+}
+
+#ticketCom .content {
+  background: #f2f3f5;
+  padding: 15px;
+}
+.image-width {
+  width: 43px;
+}
+
+
+@media(max-width:320px){
+  .right-half {
+    margin-left: 38px;
+  }
+}
+@media (max-width: 450px) {
+  .general-back-half {
+    width: 63%;
+  }
+
+}
+@media(max-width:780px){
+  .flex-container > div {
+    margin-right: 0px;
+  }
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding-top: 1.34375em;
+}
+.details-color {
+  color: #555;
+}
+.login-box-heading {
+  padding: 2pc 6pc 0 6pc;
+}

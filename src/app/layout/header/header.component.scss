@@ -1,0 +1,70 @@
+.profile-btn {
+  float: right;
+  padding  : 0 5px 0 5px;
+  font-size: 16px;
+  min-width: auto;
+  .icon-down-arrow {
+    padding-left: 8px;
+    font-size   : 10px;
+  }
+}
+
+
+.userName-btn mat-icon {
+  position: relative;
+  top: 4px;
+  left: 5px;
+}
+
+.profile-pic{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+#headLeft {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 12px;
+  display: inline-block;
+  color: #6d6d6d;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  align-items: start;
+  padding: 10px;
+}
+
+@media(max-width:320px) {
+  ::ng-deep .mat-button {
+    padding: 0 !important;
+  }
+}
+@media(max-width: 780px) {
+  .padding-remove {
+    padding: 0 !important;
+  }
+
+}
+.chat-section {
+  font-size: 25px;
+  margin-right: 2pc;
+  color: #6d6d6d;
+}
+.cart-count {
+  position: absolute;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: #6d6d6d;
+  border-radius: 100px;
+  color: #FFFFFF;
+  font-size: 12px;
+  padding: 0;
+  top: -2px;
+  right: 0px;
+}

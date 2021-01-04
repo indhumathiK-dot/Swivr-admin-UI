@@ -1,0 +1,15 @@
+<div id="headLeft">
+
+  <button mat-icon-button class="m-r-5" [routerLink]="'/profile'">
+    <img *ngIf="userProfileImg; else defaultUserImg" src="{{userProfileImg}}" alt="{{userProfileImg}}" class="profile-pic">
+    <ng-template #defaultUserImg>
+      <img src="../../../assets/img/default_user_profile.jpg" class="profile-pic">
+    </ng-template></button>
+  <button mat-button class="p-l-0 userName-btn padding-remove" overlapTrigger="false" [routerLink]="'/profile'">
+    <span>Admin</span>
+  </button>
+  <button mat-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    Logout
+  </button>
+</div>

@@ -1,0 +1,87 @@
+<div class="main-container">
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="0"
+                         style="visibility: visible; min-height: 500px">
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs sidebar-background" [mode]="'side'"
+                 fixedTopGap="0" [opened]="true" [disableClose]="true">
+
+
+
+      <div class="sidenav">
+
+        <div class="side-header">
+          <img class="w-50" src="/assets/img/logo.png">
+          <div class="side-header-name">SWIVR</div>
+        </div>
+
+        <div class="mainnav">
+          <div class="tier">
+            <ul>
+              <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Service Management</a> </li>
+              <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Cosmotologist Management</a> </li>
+              <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Client Management</a> </li>
+              <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Payout Management</a> </li>
+              <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Transaction History</a> </li>
+              <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Settings</a> </li>
+
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+    </mat-sidenav>
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav-content class="topbar-overflow">
+      <mat-toolbar class="topbar telative topbar-background">
+        <!-- ============================================================== -->
+        <!-- sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="header_site_name">
+          <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+            <mat-icon class="header-icon">menu</mat-icon>
+          </button>
+<!--          <mat-label> LAFC </mat-label>-->
+        </div>
+        <!-- ============================================================== -->
+        <!-- app header component - style you can find in header.scss / header.component.ts-->
+        <!-- ============================================================== -->
+        <div class="header_search_call">
+          <app-header></app-header>
+        </div>
+      </mat-toolbar>
+      <!-- ============================================================== -->
+      <!-- End Topbar - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+    </mat-sidenav-content>
+    <!-- ============================================================== -->
+    <!-- Header container - style you can find in header.scss -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+
+    <mat-sidenav-content class="page-wrapper">
+
+      <div class="page-content" id="pageBodyContent" #scrollBody>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+      </div>
+    </mat-sidenav-content>
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+  </mat-sidenav-container>
+
+</div>
+

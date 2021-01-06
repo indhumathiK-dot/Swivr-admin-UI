@@ -16,10 +16,14 @@ export class UserServiceService {
   }
 
   profileView(){
-    let headers = new HttpHeaders();
-    headers = headers.set("Content-Type", "application/json; charset=utf-8");
-    let token = localStorage.getItem('accessToken');
-    headers = headers.append('Authorization', token);
     return this.http.get(API.PROFILE_VIEW);
+  }
+
+  profileUpdate(data: {}){
+    return this.http.post(API.PROFILE_UPDATE, data);
+  }
+
+  imageUpload(type: string, file: any){
+    return this.http.post(API.IMAGE_UPLOAD + '?type=' + type, file);
   }
 }

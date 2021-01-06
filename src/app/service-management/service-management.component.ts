@@ -19,9 +19,7 @@ export class ServiceManagementComponent implements OnInit {
   limit: number = 15;
   event: any;
   pageSizeArray = [15, 50, 100];
-  orderString: string | undefined;
   serviceText: string | undefined;
-  showError: boolean = false;
   public isUpdate: boolean = false;
   private serviceId: any;
 

@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   isUpdate: boolean = false;
   public profileDetails: any;
+  uploadedFiles: Array<File> = [] ;
 
   constructor(private fb: FormBuilder,
               private userServiceService: UserServiceService) {
@@ -20,6 +21,7 @@ export class ProfileComponent implements OnInit {
       username: [],
       email: [],
       contact: [],
+      image: []
     });
   }
   ngOnInit(): void {
@@ -32,11 +34,60 @@ export class ProfileComponent implements OnInit {
     this.userServiceService.profileView().subscribe((data: any) => {
       if (data.statusCode === 200) {
         this.profileDetails = data.admin;
+        localStorage.setItem('fullName', this.profileDetails.fullName);
+        localStorage.setItem('adminProfile', this.profileDetails.adminProfileUrl);
       }
     });
   }
 
+  fileChange(element: any) {
+    this.uploadedFiles = element.target.files;
+  }
+
+  profileUpdate() {
+
+    if (this.uploadedFiles.length) {
+      let formData = new FormData();
+      for (var i = 0; i < this.uploadedFiles.length; i++) {
+        formData.append("file", this.uploadedFiles[i], this.uploadedFiles[i].name);
+      }
+      this.userServiceService.imageUpload('ADMIN', formData).subscribe((res: any) => {
+        if (res.statusCode === 200) {
+          let data = {
+            fullName: this.profileForm.value.username,
+            email: this.profileForm.value.email,
+            phone: this.profileForm.value.contact,
+            adminProfile: res.url
+          };
+          this.userServiceService.profileUpdate(data).subscribe((data: any) => {
+            if (data.statusCode === 200) {
+              this.isUpdate = false;
+              this.profileView();
+            }
+          });
+        }
+      });
+    } else {
+      let data = {
+        fullName: this.profileForm.value.username,
+        email: this.profileForm.value.email,
+        phone: this.profileForm.value.contact
+      };
+      this.userServiceService.profileUpdate(data).subscribe((data: any) => {
+        if (data.statusCode === 200) {
+          this.isUpdate = false;
+          this.profileView();
+        }
+      });
+    }
+  }
+
   editUpdate(type: string) {
     this.isUpdate = type === 'edit';
+    this.profileForm.patchValue({
+      username: this.profileDetails.fullName,
+      email: this.profileDetails.email,
+      contact: this.profileDetails.phone
+    });
   }
 }

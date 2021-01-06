@@ -18,21 +18,21 @@
               <div class="bold-font">User name</div>
             </div>
             <div class="right-half">
-              <div class="details-color">{{profileDetails.fullName}}</div>
+              <div class="details-color">{{profileDetails?.fullName}}</div>
             </div>
             <div class="invLine"></div>
             <div class="left-half">
               <div class="bold-font">Email</div>
             </div>
             <div class="right-half">
-              <div class="details-color">{{profileDetails.email}}</div>
+              <div class="details-color">{{profileDetails?.email}}</div>
             </div>
             <div class="invLine"></div>
             <div class="left-half">
               <div class="bold-font">Conatct Number</div>
             </div>
             <div class="right-half">
-              <div class="details-color">{{profileDetails.phone}}</div>
+              <div class="details-color">{{profileDetails?.phone}}</div>
             </div>
             <div class="invLine"></div>
 
@@ -48,7 +48,7 @@
                     </div>
                     <div class="right-half">
                       <div class="fileinput-new thumbnail" style="width: 150px;">
-                        <img class="w-100" src="{{profileDetails.adminProfileUrl}}">
+                        <img class="w-100" src="{{profileDetails?.adminProfileUrl}}">
                       </div>
 
                     </div>
@@ -112,14 +112,14 @@
                     </div>
                     <div class="right-half">
                       <div class="fileinput-new thumbnail" style="width: 150px;">
-                        <img class="w-100" src="https://swivr-dev.s3.us-east-2.amazonaws.com/customer/image-f037f40a-ec11-4a8b-abce-ba997260ed18.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4GG3GNFSZGKCSXRI%2F20210104%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20210104T130759Z&X-Amz-Expires=3600&X-Amz-Signature=48f0922bb49c36e9132ea93fdddebcecb3fb2e9b3fb1eb6e66e8cbb866246720&X-Amz-SignedHeaders=host">
+                        <img class="w-100" src="{{profileDetails?.adminProfileUrl}}">
                       </div>
 
 
                       <div class="btn btn-default btn-file">
                         <span class="fileinput-new">
                           <input type="hidden" value="" name="">
-                           <input #inputFile class="input-file" type="file" id="myFiles" accept=".png, .jpg, .jpeg">
+                           <input #inputFile class="input-file" type="file" id="myFiles" accept=".png, .jpg, .jpeg" (change)="fileChange($event)">
                        </span>
                       </div>
                     </div>
@@ -136,7 +136,7 @@
 
             <div class="w-50 update-button">
               <button type="submit" mat-flat-button color="primary"
-                      class="display edit-icon">Update</button>
+                      class="display edit-icon" (click)="profileUpdate()">Update</button>
 
               <button type="submit" mat-flat-button
                       class="display cancel-button" (click)="editUpdate('cancel')">Cancel</button>

@@ -1,6 +1,6 @@
 .sidenav {
   height: 100%;
-  width: 250px;
+  width: 290px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -46,13 +46,9 @@
 }
 
 .page-wrapper {
-  width: calc(100% - 250px);
+  width: calc(100% - 290px);
   float: right;
 }
-
-/*.page-wrapper .mat-drawer-content {*/
-/*margin-left: 289px;*/
-/*}*/
 
 @media screen and (max-width: 765px) {
   .page-wrapper{

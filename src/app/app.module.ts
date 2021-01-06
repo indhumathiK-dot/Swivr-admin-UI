@@ -30,6 +30,7 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
 import { ProfileComponent } from './profile/profile.component';
 import { ServiceManagementComponent } from './service-management/service-management.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { CosmetologistListComponent } from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     LoginComponent,
     PasswordResetComponent,
     ProfileComponent,
-    ServiceManagementComponent
+    ServiceManagementComponent,
+    CosmetologistListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,76 @@
+<h1 class="serivice-title">Cosmetologist Management</h1>
+
+<div class="row-main row">
+  <div class="col-sm-12">
+    <div class="border-list roles_policies_tbl">
+
+      <table mat-table [dataSource]="dataSource" class="table-format">
+        <ng-container matColumnDef="Cosmetologist Name">
+          <th mat-header-cell *matHeaderCellDef class="mat-header-size">Cosmetologist Name</th>
+          <td mat-cell *matCellDef="let data" class="mat-cell-size">
+            <a style="cursor: pointer">
+              <div class="width-roleName">
+                <img class="w-50" src="{{data.serviceImageUrl}}">
+              </div>
+            </a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef class="mat-header-size">Email</th>
+          <td mat-cell *matCellDef="let data" class="mat-cell-size">
+            <a style="cursor: pointer">
+              <div class="width-roleName">
+                <img class="w-50" src="{{data.serviceImageUrl}}">
+              </div>
+            </a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Phone">
+          <th mat-header-cell *matHeaderCellDef class="mat-header-size">Phone</th>
+          <td mat-cell *matCellDef="let data" class="mat-cell-size">
+            <a style="cursor: pointer">
+              <div class="width-roleName">
+                <img class="w-50" src="{{data.serviceImageUrl}}">
+              </div>
+            </a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Shop name">
+          <th mat-header-cell *matHeaderCellDef class="mat-header-size">Shop name</th>
+          <td mat-cell *matCellDef="let data" class="mat-cell-size">
+            <a style="cursor: pointer">
+              <div class="width-roleName">
+                <img class="w-50" src="{{data.serviceImageUrl}}">
+              </div>
+            </a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Shop email">
+          <th mat-header-cell *matHeaderCellDef class="mat-header-size">Shop email</th>
+          <td mat-cell *matCellDef="let data" class="mat-cell-size">
+            {{data.serviceName}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef class="mat-header-size">Action</th>
+          <td mat-cell *matCellDef="let data;let i = index" class="mat-cell-size">
+            <a class="btn btn-sm btn-action">
+              <div class="ripple" matTooltip="Edit">
+                <i class="far fa-edit edit-icon"></i>
+              </div>
+            </a>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnTitle"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnTitle;"></tr>
+      </table>
+      <div *ngIf="rowCount === 0" class="no-data">No Data</div>
+      <mat-paginator #paginator [pageSizeOptions]="pageSizeArray" showFirstLastButtons (page)="onChange($event)" [length]="rowCount" [pageSize]="limit"></mat-paginator>
+    </div>
+  </div>
+</div>

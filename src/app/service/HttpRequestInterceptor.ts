@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {BehaviorSubject} from "rxjs";
 import {Router} from '@angular/router';
-import {catchError} from "rxjs/operators";
+import {catchError, finalize, tap} from 'rxjs/operators';
 import {Observable} from "rxjs";
 
 
@@ -20,13 +20,18 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
     // } else {
     //   this.router.navigate(['/login']);
     // }
+    const token = localStorage.getItem('accessToken');
+    const reqh = request.clone({
+        headers: request.headers.append(
+          'Authorization', (token ? 'bearer ' + token : '')
+        )
+      });
 
-    return next.handle(request)
-      .pipe(catchError((err: any) => {
-        console.log('this log isn');
+    return next.handle(reqh) .pipe ( tap (
 
-        return new Observable<HttpEvent<any>>();
-      }));
+        ), finalize(() => {
+        })
+      );
   }
 
 

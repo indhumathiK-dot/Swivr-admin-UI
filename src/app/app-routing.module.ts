@@ -5,13 +5,16 @@ import {PasswordResetComponent} from './password-reset/password-reset.component'
 import {ProfileComponent} from './profile/profile.component';
 import {ServiceManagementComponent} from './service-management/service-management.component';
 import {CosmetologistListComponent} from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
+import {CosmetologistDetailsComponent} from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
 
 const routes: Routes = [
+  // {path: '*', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'password-reset', component: PasswordResetComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'services', component: ServiceManagementComponent},
   {path: 'cosmetologist', component: CosmetologistListComponent},
+  {path: 'cosmetologist/details/:id', component: CosmetologistDetailsComponent},
   ];
 
 @NgModule({

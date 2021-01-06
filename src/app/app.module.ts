@@ -31,6 +31,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ServiceManagementComponent } from './service-management/service-management.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CosmetologistListComponent } from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
+import { CosmetologistDetailsComponent } from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CosmetologistListComponent } from './cosmetologist-management/cosmetolo
     PasswordResetComponent,
     ProfileComponent,
     ServiceManagementComponent,
-    CosmetologistListComponent
+    CosmetologistListComponent,
+    CosmetologistDetailsComponent
   ],
   imports: [
     BrowserModule,

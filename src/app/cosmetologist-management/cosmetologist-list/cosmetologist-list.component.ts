@@ -18,10 +18,17 @@ export class CosmetologistListComponent implements OnInit {
   pageSizeArray = [15, 50, 100];
 
   constructor() {
-    this.columnTitle = ['Cosmetologist Name', 'Email', 'Phone', 'Shop name', 'Shop email', 'Action'];
+    this.columnTitle = ['Cosmetologist Profile', 'Cosmetologist Name', 'Email', 'Phone', 'Shop name', 'Shop email', 'Action'];
   }
 
   ngOnInit(): void {
+    this.dataSource.data = [
+      {
+
+      }, {
+
+      }, {}
+    ];
   }
 
   onChange(event: any) {

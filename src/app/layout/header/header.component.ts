@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
+import {UserServiceService} from '../../service/user-service.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   public fullname: string | null = '';
 
   constructor(private router: Router,
-              public dialog: MatDialog) {
+              private userServiceService: UserServiceService) {
   }
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.clear();
+    this.userServiceService.updateIsUserLogged.next(false);
     this.router.navigate(['/login']);
   }
 

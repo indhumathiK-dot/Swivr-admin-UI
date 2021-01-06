@@ -28,41 +28,45 @@ import {HttpsRequestInterceptor} from './service/HttpRequestInterceptor';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ServiceManagementComponent } from './service-management/service-management.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PasswordResetComponent,
-    ProfileComponent
+    ProfileComponent,
+    ServiceManagementComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatListModule,
-        FlexLayoutModule,
-        MatTabsModule,
-        MatSelectModule,
-        ReactiveFormsModule,
-        FormsModule,
-        CommonModule,
-        MatInputModule,
-        MatTableModule,
-        MatSortModule,
-        MatTooltipModule,
-        HttpClientModule,
-        FullLayoutModule,
-        MatCardModule,
-        MatDialogModule,
-        BrowserModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatListModule,
+    FlexLayoutModule,
+    MatTabsModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatTooltipModule,
+    HttpClientModule,
+    FullLayoutModule,
+    MatCardModule,
+    MatDialogModule,
+    BrowserModule,
+    MatPaginatorModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

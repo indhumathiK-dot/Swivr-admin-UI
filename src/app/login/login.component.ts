@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
+import {UserServiceService} from '../service/user-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   userProfileImg: any;
   public errorClose: boolean | undefined;
+  private timezone: string | undefined;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private userServiceService: UserServiceService,
+              private router: Router) {
     this.loginForm = this.fb.group({
       username: [''],
       password: ['']
@@ -26,13 +30,13 @@ export class LoginComponent implements OnInit {
       let extraZero = '';
       if (-offset % 60 < 10)
         extraZero = '0';
-      console.log( '+' + Math.ceil(offset / - 60) + ':' + extraZero + (-offset % 60));
+      this.timezone = '+' + Math.ceil(offset / - 60) + ':' + extraZero + (-offset % 60);
     } else {
       let extraZero = '';
       if (offset % 60 < 10)
         extraZero = '0';
 
-      console.log( '-' + Math.floor(offset / 60) + ':' + extraZero + (offset % 60));
+      this.timezone = '-' + Math.floor(offset / 60) + ':' + extraZero + (offset % 60);
     }
   }
 
@@ -41,9 +45,19 @@ export class LoginComponent implements OnInit {
       this.errorClose = true;
     } else {
       var data = {
-        username: this.loginForm.value.username,
-        password: this.loginForm.value.password
+        email: this.loginForm.value.username,
+        password: this.loginForm.value.password,
+        timeZone: this.timezone
       };
+      this.userServiceService.login(data).subscribe((data: any) => {
+        if (data.statusCode === 200) {
+          this.userServiceService.updateIsUserLogged.next(true);
+          localStorage.setItem('accessToken', data.accessToken);
+          localStorage.setItem('fullName', data.admin.fullName);
+          localStorage.setItem('adminProfile', data.admin.adminProfile);
+          this.router.navigate(['/services']);
+        }
+      });
     }
   }
 }

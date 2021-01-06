@@ -1,39 +1,102 @@
 <div id="ticketCom">
   <!-- Main content -->
   <section class="content">
-
-<!--    <div class="panel-heading">-->
-<!--      <h3 class="panel-title">Profile</h3>-->
-<!--    </div>-->
     <div class="">
       <div id="tickets-cont-dev">
 
         <div class="login-box-heading">
-          <h1 class="head-font">Profile</h1>
+          <h1 class="head-font display">Profile</h1>
+
+          <button type="submit" mat-flat-button color="primary" class="display right-align edit-icon"
+                  (click)="editUpdate('edit')" *ngIf="!isUpdate">Edit</button>
         </div>
 
-        <div class="details">
+        <div class="details" *ngIf="!isUpdate">
 
           <div class="line-height">
             <div class="left-half">
               <div class="bold-font">User name</div>
             </div>
             <div class="right-half">
-              <div class="details-color">Admin</div>
+              <div class="details-color">{{profileDetails.fullName}}</div>
             </div>
             <div class="invLine"></div>
             <div class="left-half">
               <div class="bold-font">Email</div>
             </div>
             <div class="right-half">
-              <div class="details-color">test@softsuave.com</div>
+              <div class="details-color">{{profileDetails.email}}</div>
             </div>
             <div class="invLine"></div>
             <div class="left-half">
               <div class="bold-font">Conatct Number</div>
             </div>
             <div class="right-half">
-              <div class="details-color">9854726985</div>
+              <div class="details-color">{{profileDetails.phone}}</div>
+            </div>
+            <div class="invLine"></div>
+
+
+
+            <div class="form-group form-default">
+              <div>
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                  <div>
+
+                    <div class="left-half">
+                      <div class="bold-font">Profile Image</div>
+                    </div>
+                    <div class="right-half">
+                      <div class="fileinput-new thumbnail" style="width: 150px;">
+                        <img class="w-100" src="{{profileDetails.adminProfileUrl}}">
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div id="valid_msg" style="color: #e11221"></div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+        <div class="details" *ngIf="isUpdate">
+
+          <form [formGroup]="profileForm">
+            <div class="line-height">
+            <div class="left-half">
+              <div class="bold-font">User name</div>
+            </div>
+            <div class="right-half">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label class="label-name">User name</mat-label>
+                <input matInput placeholder="User name" formControlName="username">
+              </mat-form-field>
+            </div>
+            <div class="invLine"></div>
+            <div class="left-half">
+              <div class="bold-font">Email</div>
+            </div>
+            <div class="right-half">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label class="label-name">Email</mat-label>
+                <input type="email" matInput placeholder="Email" formControlName="email">
+              </mat-form-field>
+            </div>
+            <div class="invLine"></div>
+            <div class="left-half">
+              <div class="bold-font">Conatct Number</div>
+            </div>
+            <div class="right-half">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label class="label-name">Contact Number</mat-label>
+                <input matInput placeholder="Contact Number" formControlName="contact">
+              </mat-form-field>
             </div>
             <div class="invLine"></div>
 
@@ -53,17 +116,17 @@
                       </div>
 
 
-                      <!--<div class="btn btn-default btn-file">
+                      <div class="btn btn-default btn-file">
                         <span class="fileinput-new">
                           <input type="hidden" value="" name="">
                            <input #inputFile class="input-file" type="file" id="myFiles" accept=".png, .jpg, .jpeg">
                        </span>
-                      </div>-->
+                      </div>
                     </div>
 
-<!--                    <a *ngIf="isDelete" title="Remove" (click)="removeFiles()" class="btn btn-sm btn-add-more"><i-->
-<!--                      *ngIf="isDelete" aria-hidden="true"-->
-<!--                      class="fai fa-trash-o text-danger fa-lg "></i></a>-->
+                    <a title="Remove" class="btn btn-sm btn-add-more">
+                      <i aria-hidden="true" class="fai fa-trash-o text-danger fa-lg "></i>
+                    </a>
                   </div>
                   <div id="valid_msg" style="color: #e11221"></div>
                 </div>
@@ -71,9 +134,21 @@
             </div>
 
 
+            <div class="w-50 update-button">
+              <button type="submit" mat-flat-button color="primary"
+                      class="display edit-icon">Update</button>
+
+              <button type="submit" mat-flat-button
+                      class="display cancel-button" (click)="editUpdate('cancel')">Cancel</button>
+            </div>
+
           </div>
 
+          </form>
+
         </div>
+
+
       </div>
     </div>
   </section>

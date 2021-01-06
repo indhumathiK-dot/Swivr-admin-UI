@@ -3,10 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  BASE_URL: 'https://vendorapi.lafashionmarketplace.com',
+  BASE_URL: 'http://3.130.117.196:8081',
   API_VERSION: '/api',
-  production: false,
-  image_url: 'https://admin.lafashionmarketplace.com/image/',
+  production: false
 };
 
 /*

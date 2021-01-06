@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +31,7 @@ import { ServiceManagementComponent } from './service-management/service-managem
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CosmetologistListComponent } from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
 import { CosmetologistDetailsComponent } from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { CosmetologistDetailsComponent } from './cosmetologist-management/cosmet
     ProfileComponent,
     ServiceManagementComponent,
     CosmetologistListComponent,
-    CosmetologistDetailsComponent
+    CosmetologistDetailsComponent,
+    TransactionHistoryComponent
   ],
   imports: [
     BrowserModule,

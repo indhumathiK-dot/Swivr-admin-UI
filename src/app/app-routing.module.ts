@@ -6,6 +6,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {ServiceManagementComponent} from './service-management/service-management.component';
 import {CosmetologistListComponent} from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
 import {CosmetologistDetailsComponent} from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
+import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
 
 const routes: Routes = [
   // {path: '*', component: LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'services', component: ServiceManagementComponent},
   {path: 'cosmetologist', component: CosmetologistListComponent},
   {path: 'cosmetologist/details/:id', component: CosmetologistDetailsComponent},
+  {path: 'transactionHistory', component: TransactionHistoryComponent},
   ];
 
 @NgModule({

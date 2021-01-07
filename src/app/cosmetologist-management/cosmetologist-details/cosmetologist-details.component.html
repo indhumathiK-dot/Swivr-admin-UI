@@ -18,10 +18,10 @@
               <h2>Costmetologist Profile</h2>
               <div class="panel-custom clearfix">
                 <div class="profile-section clearfix" style="background: #f4f4f7;">
-                  <img src="https://swivr-dev.s3.us-east-2.amazonaws.com/cosmetologist/image-182cbf7e-5199-4512-a866-1c499049701d.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4GG3GNFSZGKCSXRI%2F20210106%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20210106T115551Z&X-Amz-Expires=3600&X-Amz-Signature=d2e1826100ffb9a20d9e7679fb3a334747212ee70075c00cbd7bb73027c8728d&X-Amz-SignedHeaders=host"
+                  <img src="{{cosmetologistDetails?.userProfileUrl}}"
                        class="profile-pic">
                   <div class="display">
-                    <div class="profile-name-design">fdgdf</div>
+                    <div class="profile-name-design">{{cosmetologistDetails?.fullName}}</div>
                   </div>
                 </div>
               </div>
@@ -34,7 +34,7 @@
                             Address : </span></div>
                     </div>
                     <div class="col-md-9">
-                      <div><span><strong>Soft Suave Technologies Pvt Ltd, Kundrathur Main Road, MS Nagar, Porur, Chennai, Tamil Nadu, India</strong></span></div>
+                      <div><span><strong>{{cosmetologistDetails?.address}}</strong></span></div>
                     </div>
                   </div>
                 </div>
@@ -49,7 +49,7 @@
                             Email : </span></div>
                     </div>
                     <div class="col-md-6">
-                      <div><span><strong>sdfsfsd@fxgfdg.dfgddf</strong></span></div>
+                      <div><span><strong>{{cosmetologistDetails?.email}}</strong></span></div>
                     </div>
                     </div>
                     <div class="col-md-6 row">
@@ -58,7 +58,7 @@
                           Contact Number : </span></div>
                     </div>
                     <div class="col-md-6">
-                      <div><span><strong>8965745632589</strong></span></div>
+                      <div><span><strong>{{cosmetologistDetails?.phone}}</strong></span></div>
                     </div>
                     </div>
                   </div>
@@ -70,15 +70,15 @@
             </div>
           </div>
 
-          <div class="col-md-6 shop-section-split">
+          <div class="col-md-6 shop-section-split" *ngIf="cosmetologistDetails?.shopId">
             <div class="content-left-area-tickets-single organization-details">
               <h2>Shop Profile</h2>
               <div class="panel-custom clearfix">
                 <div class="profile-section clearfix" style="background: #f4f4f7;">
-                  <img src="https://swivr-dev.s3.us-east-2.amazonaws.com/cosmetologist/image-182cbf7e-5199-4512-a866-1c499049701d.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4GG3GNFSZGKCSXRI%2F20210106%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20210106T115551Z&X-Amz-Expires=3600&X-Amz-Signature=d2e1826100ffb9a20d9e7679fb3a334747212ee70075c00cbd7bb73027c8728d&X-Amz-SignedHeaders=host"
+                  <img src="{{shopDetails?.shopImageUrl}}"
                        class="profile-pic">
                   <div class="display">
-                    <div class="profile-name-design">fdgdf</div>
+                    <div class="profile-name-design">{{shopDetails?.shopName}}</div>
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                             Address : </span></div>
                     </div>
                     <div class="col-md-9">
-                      <div><span><strong>Soft Suave Technologies Pvt Ltd, Kundrathur Main Road, MS Nagar, Porur, Chennai, Tamil Nadu, India</strong></span></div>
+                      <div><span><strong>{{shopDetails?.address}}</strong></span></div>
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                             Email : </span></div>
                       </div>
                       <div class="col-md-6">
-                        <div><span><strong>sdfsfsd@fxgfdg.dfgddf</strong></span></div>
+                        <div><span><strong>{{shopDetails.email}}</strong></span></div>
                       </div>
                     </div>
                     <div class="col-md-6 row">
@@ -115,7 +115,7 @@
                           Contact Number : </span></div>
                       </div>
                       <div class="col-md-6">
-                        <div><span><strong>8965745632589</strong></span></div>
+                        <div><span><strong>{{shopDetails?.phone}}</strong></span></div>
                       </div>
                     </div>
                   </div>

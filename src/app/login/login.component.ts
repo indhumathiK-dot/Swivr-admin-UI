@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       this.errorClose = true;
     } else {
       var data = {
-        email: this.loginForm.value.username,
+        userName: this.loginForm.value.username,
         password: this.loginForm.value.password,
         timeZone: this.timezone
       };
@@ -55,7 +55,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('accessToken', data.accessToken);
           localStorage.setItem('fullName', data.admin.fullName);
           localStorage.setItem('adminProfile', data.admin.adminProfile);
-          this.router.navigate(['/services']);
+          this.router.navigate(['/services']) .then(() => {
+            window.location.reload();
+          });
         }
       });
     }

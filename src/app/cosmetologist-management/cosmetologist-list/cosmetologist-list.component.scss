@@ -4,7 +4,7 @@ table{
 }
 .mat-header-cell{
   font-size:16px !important;
-  background: #F0F0F0 !important;
+  background: #4BD13D !important;
 }
 .mat-cell-size{
   font-size: 14px !important;
@@ -31,6 +31,7 @@ table{
 
 td:first-child, th:first-child {
   width: 20%;
+  text-align: center;
 }
 .no-data {
   text-align: center;
@@ -40,3 +41,7 @@ td:first-child, th:first-child {
 .view-icon {
   color: #007bff;
 }
+.profile-width {
+  width: 35%;
+}
+tr:nth-child(even){background-color: #F8F8F8}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import {CosmetologistServiceService} from '../../service/cosmetologist-service.service';
 
 @Component({
   selector: 'app-cosmetologist-list',
@@ -17,11 +18,12 @@ export class CosmetologistListComponent implements OnInit {
   event: any;
   pageSizeArray = [15, 50, 100];
 
-  constructor() {
-    this.columnTitle = ['Cosmetologist Profile', 'Cosmetologist Name', 'Email', 'Phone', 'Shop name', 'Shop email', 'Action'];
+  constructor(private cosmetologistServiceService: CosmetologistServiceService) {
+    this.columnTitle = ['Cosmetologist Profile', 'Cosmetologist Name', 'Email', 'Phone', 'Shop name', 'Action'];
   }
 
   ngOnInit(): void {
+    this.getCosmetologistList(0, 0);
     this.dataSource.data = [
       {
 
@@ -29,6 +31,26 @@ export class CosmetologistListComponent implements OnInit {
 
       }, {}
     ];
+  }
+
+  getCosmetologistList(count = 0, previousPageIndex = 0) {
+
+    if (count === 0) {
+      if (count <= previousPageIndex) {
+        this.start = 0;
+      } else {
+        this.start += this.pageSize;
+      }
+    } else {
+      this.start = count * this.pageSize;
+    }
+
+    this.cosmetologistServiceService.cosmetologistList(this.start, this.limit).subscribe((data: any) => {
+      if (data.statusCode === 200) {
+        this.dataSource.data = data.list;
+        this.rowCount = data.count;
+      }
+    });
   }
 
   onChange(event: any) {
@@ -39,7 +61,7 @@ export class CosmetologistListComponent implements OnInit {
       this.pageSize = event.pageSize;
     }
     this.prevPageIndex = event.previousPageIndex;
-    // this.getServiceList(event.pageIndex, event.previousPageIndex);
+    this.getCosmetologistList(event.pageIndex, event.previousPageIndex);
   }
 
 }

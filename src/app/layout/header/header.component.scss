@@ -27,7 +27,7 @@
   top: 0;
   margin-top: 12px;
   display: inline-block;
-  color: #6d6d6d;
+  color: #FFFFFF;
 }
 
 .mat-toolbar-row, .mat-toolbar-single-row {
@@ -45,26 +45,4 @@
     padding: 0 !important;
   }
 
-}
-.chat-section {
-  font-size: 25px;
-  margin-right: 2pc;
-  color: #6d6d6d;
-}
-.cart-count {
-  position: absolute;
-  display: inline-flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  background-color: #6d6d6d;
-  border-radius: 100px;
-  color: #FFFFFF;
-  font-size: 12px;
-  padding: 0;
-  top: -2px;
-  right: 0px;
 }

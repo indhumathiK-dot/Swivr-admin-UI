@@ -10,7 +10,7 @@
           <th mat-header-cell *matHeaderCellDef class="mat-header-size">Cosmetologist Profile</th>
           <td mat-cell *matCellDef="let data" class="mat-cell-size"><a style="cursor: pointer">
             <div class="width-roleName">
-              <img class="w-50" src="https://swivr-dev.s3.us-east-2.amazonaws.com/customer/image-f037f40a-ec11-4a8b-abce-ba997260ed18.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4GG3GNFSZGKCSXRI%2F20210104%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20210104T130759Z&X-Amz-Expires=3600&X-Amz-Signature=48f0922bb49c36e9132ea93fdddebcecb3fb2e9b3fb1eb6e66e8cbb866246720&X-Amz-SignedHeaders=host">
+              <img class="profile-width" src="{{data.profileUrl}}">
             </div>
           </a>
           </td>
@@ -19,42 +19,36 @@
         <ng-container matColumnDef="Cosmetologist Name">
           <th mat-header-cell *matHeaderCellDef class="mat-header-size">Cosmetologist Name</th>
           <td mat-cell *matCellDef="let data" class="mat-cell-size">
-            <a href="cosmetologist/details/1">Indhu</a>
+            <a href="cosmetologist/details/{{data.userKey}}">{{data.fullName}}</a>
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Email">
           <th mat-header-cell *matHeaderCellDef class="mat-header-size">Email</th>
           <td mat-cell *matCellDef="let data" class="mat-cell-size">
-            indhumathi@softsuave.com
+            {{data.email}}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Phone">
           <th mat-header-cell *matHeaderCellDef class="mat-header-size">Phone</th>
           <td mat-cell *matCellDef="let data" class="mat-cell-size">
-            8475963214
+            {{data.phone}}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Shop name">
           <th mat-header-cell *matHeaderCellDef class="mat-header-size">Shop name</th>
           <td mat-cell *matCellDef="let data" class="mat-cell-size">
-            Green trends
+            {{data.shopName}}
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="Shop email">
-          <th mat-header-cell *matHeaderCellDef class="mat-header-size">Shop email</th>
-          <td mat-cell *matCellDef="let data" class="mat-cell-size">
-            server@trends.com
-          </td>
-        </ng-container>
 
         <ng-container matColumnDef="Action">
           <th mat-header-cell *matHeaderCellDef class="mat-header-size">Action</th>
           <td mat-cell *matCellDef="let data;let i = index" class="mat-cell-size">
-            <a class="btn btn-sm btn-action" href="cosmetologist/details/1">
+            <a class="btn btn-sm btn-action" href="cosmetologist/details/{{data.userKey}}">
               <div class="ripple" matTooltip="View details">
                 <i class="fas fa-list view-icon"></i>
               </div>

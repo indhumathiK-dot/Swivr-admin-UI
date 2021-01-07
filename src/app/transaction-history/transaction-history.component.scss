@@ -1,3 +1,78 @@
 .serivice-title {
   padding: 0 2pc;
 }
+table{
+  width: 100%;
+  border-collapse: inherit !important;
+}
+.mat-header-cell{
+  font-size:16px !important;
+  background: #F0F0F0 !important;
+}
+.mat-cell-size{
+  font-size: 14px !important;
+  color: #585858;
+}
+.border-list{
+  padding-left:10px;
+}
+.row{
+  flex-wrap: initial;
+}
+.mat-paginator-range-label{
+  padding-left: 20px;
+}
+.div-row-form{
+  padding:10px;
+}
+.row.div-row-form{
+  padding:0px;
+}
+.common{
+  display: inline-block;
+}
+
+td:first-child, th:first-child {
+  width: 20%;
+}
+.no-data {
+  text-align: center;
+  margin-top: 10px;
+  color: black;
+}
+.view-icon {
+  color: #007bff;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: 0px;
+  background-color: #ffffff;
+  border: 1px solid #e4eaec;
+  margin-left: 22px;
+  margin-right: 23px;
+}
+
+.mr-sm {
+  margin-right: 5px !important;
+}
+
+small, .small {
+  font-size: 85%;
+}
+
+.mainDiv {
+  background-color: white;
+  height: auto;
+  width: 100%;
+}
+
+.headerDiv {
+  padding: 15px;
+  font-weight: bold;
+}
+.activityList{
+  padding:5px;
+}

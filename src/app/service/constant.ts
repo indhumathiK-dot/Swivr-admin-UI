@@ -9,5 +9,6 @@ export const API = {
   IMAGE_UPLOAD: API_ENDPOINT_URL + '/admin/admin/imageUpdate',
   SERVICE_LIST: API_ENDPOINT_URL + '/appointments/defaultServices/list',
   SERVICE_ADD: API_ENDPOINT_URL + '/appointments/defaultServices/add',
-  SERVICE_UPDATE: API_ENDPOINT_URL + '/appointments/defaultServices/update'
+  SERVICE_UPDATE: API_ENDPOINT_URL + '/appointments/defaultServices/update',
+  TRANSACTION_HIST0RY: API_ENDPOINT_URL + '/Admin/AdminController_transactionHistory'
 };

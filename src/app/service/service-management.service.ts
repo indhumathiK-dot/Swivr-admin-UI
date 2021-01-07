@@ -20,5 +20,8 @@ export class ServiceManagementService {
   serviceUpdate(data: any){
     return this.http.put(API.SERVICE_UPDATE, data);
   }
+  getTransactionHistory(data: any){
+    return this.http.get(API.TRANSACTION_HIST0RY, data);
+  }
 
 }

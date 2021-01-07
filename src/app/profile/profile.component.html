@@ -5,7 +5,6 @@
       <div id="tickets-cont-dev">
 
         <div class="login-box-heading">
-          <h1 class="head-font display">Profile</h1>
 
           <button type="submit" mat-flat-button color="primary" class="display right-align edit-icon"
                   (click)="editUpdate('edit')" *ngIf="!isUpdate">Edit</button>
@@ -18,8 +17,16 @@
               <div class="bold-font">User name</div>
             </div>
             <div class="right-half">
+              <div class="details-color">{{profileDetails?.userName}}</div>
+            </div>
+
+            <div class="left-half">
+              <div class="bold-font">Full name</div>
+            </div>
+            <div class="right-half">
               <div class="details-color">{{profileDetails?.fullName}}</div>
             </div>
+
             <div class="invLine"></div>
             <div class="left-half">
               <div class="bold-font">Email</div>
@@ -75,9 +82,21 @@
             <div class="right-half">
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label class="label-name">User name</mat-label>
-                <input matInput placeholder="User name" formControlName="username">
+                <input matInput placeholder="User name" formControlName="userName">
               </mat-form-field>
             </div>
+
+              <div class="invLine"></div>
+                <div class="left-half">
+                  <div class="bold-font">Full name</div>
+                </div>
+                <div class="right-half">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label class="label-name">Full name</mat-label>
+                    <input matInput placeholder="User name" formControlName="fullName">
+                  </mat-form-field>
+                </div>
+
             <div class="invLine"></div>
             <div class="left-half">
               <div class="bold-font">Email</div>

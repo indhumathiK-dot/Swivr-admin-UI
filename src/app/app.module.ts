@@ -32,6 +32,8 @@ import { ServiceManagementComponent } from './service-management/service-managem
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CosmetologistListComponent } from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
 import { CosmetologistDetailsComponent } from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
+import {TreeTableModule} from 'primeng/treetable';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { CosmetologistDetailsComponent } from './cosmetologist-management/cosmet
     MatDialogModule,
     BrowserModule,
     MatPaginatorModule,
+    TreeTableModule,
+    InfiniteScrollModule
   ],
   providers: [
     {

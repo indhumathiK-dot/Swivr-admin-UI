@@ -24,13 +24,6 @@ export class CosmetologistListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCosmetologistList(0, 0);
-    this.dataSource.data = [
-      {
-
-      }, {
-
-      }, {}
-    ];
   }
 
   getCosmetologistList(count = 0, previousPageIndex = 0) {

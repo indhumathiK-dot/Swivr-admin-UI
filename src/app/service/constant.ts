@@ -4,6 +4,7 @@ export const API_ENDPOINT_URL = environment.BASE_URL + environment.API_VERSION;
 
 export const API = {
   LOGIN: API_ENDPOINT_URL + '/admin/admin/login',
+  RESET_PASSWORD: API_ENDPOINT_URL + '/admin/admin/resetPassword',
   PROFILE_VIEW: API_ENDPOINT_URL + '/admin/admin/adminProfile',
   PROFILE_UPDATE: API_ENDPOINT_URL + '/admin/admin/updateAdminProfile',
   IMAGE_UPLOAD: API_ENDPOINT_URL + '/admin/admin/imageUpdate',
@@ -11,5 +12,6 @@ export const API = {
   SERVICE_ADD: API_ENDPOINT_URL + '/appointments/defaultServices/add',
   SERVICE_UPDATE: API_ENDPOINT_URL + '/appointments/defaultServices/update',
   COSMETOLOGIST_LIST: API_ENDPOINT_URL + '/admin/getCosmetologistList',
-  COSMETOLOGIST_DETAILS: API_ENDPOINT_URL + '/admin/cosmetologistDetails'
+  COSMETOLOGIST_DETAILS: API_ENDPOINT_URL + '/admin/cosmetologistDetails',
+  GET_APPOINTMENT_LIST: API_ENDPOINT_URL + '/admin/appointmentList'
 };

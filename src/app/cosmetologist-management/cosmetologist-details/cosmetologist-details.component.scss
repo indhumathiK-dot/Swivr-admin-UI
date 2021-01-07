@@ -149,3 +149,180 @@ table {
 .back-icon {
   vertical-align: middle;
 }
+
+
+
+
+
+::ng-deep .milestoneDetail {
+  width: 100%;
+  padding: 0px;
+
+  mat-tab-header.mat-tab-header {
+    width: auto;
+    height: 53px;
+  }
+
+  .mat-tab-labels {
+    display: inline-flex;
+    flex-direction: row !important;
+  }
+
+  .mat-tab-label {
+    border: none;
+    border-radius: 20px;
+  }
+
+  .mat-tab-group {
+    flex-direction: column;
+  }
+
+  mat-tab-header.mat-tab-header {
+    padding-left: 24px;
+    padding-top: 8px;
+  }
+}
+::ng-deep .no_border{
+  border:none;
+  height: 50px;
+}
+.no_border td{
+  border: none;
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+  vertical-align: text-top;
+}
+.no_border th{
+  border: none;
+  background-color: #f9f9f9;
+  border-bottom:0.5px #898989;
+}
+
+.no_border tr:last-child{
+  border-bottom: #000000;
+}
+
+.no_border:nth-child(odd) {
+  background-color: #fff;
+}
+.no_border:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-format{
+  color:black;
+  font-weight:500;
+  font-size: 14px;
+}
+.data-format .btn {
+  padding:4px;
+}
+
+.field_label {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 0 15px;
+  font-size: 13px;
+  color: #000000;
+  font-weight: 500;
+}
+
+
+
+.form-buttons {
+  display: inline-block;
+  float: right;
+}
+
+.form-buttons button {
+  color: #fff;
+  padding: 2px 25px;
+  border-radius: 30px;
+  border: none;
+  margin: 10px 5px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.form-buttons .green {
+  background-color: #27c346;
+}
+
+.form-buttons .cancel {
+  background-color: #e0e0e0;
+  color: black;
+}
+
+.data_format{
+  margin-top:2px;
+}
+
+.form-buttons .back {
+  background-color: white;
+  color: #898989;
+  border: 1px solid;
+}
+
+.milestoneDetail .profile-pic{
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.no-data {
+  text-align: center;
+  margin-top: 10px;
+  color: black;
+  padding-bottom: 32px;
+}
+
+.milestone-header{
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #939393;
+  height: 42px;
+}
+
+::ng-deep .projectDetails .milestone_name {width: 40%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+
+::ng-deep .projectDetails .milestone_name:hover {word-break: break-word;white-space: normal;}
+
+
+::ng-deep .ui-treetable-table .milestone_name span.data_format {
+  margin: 0;
+}
+
+::ng-deep .ui-treetable-table .milestone_name span {
+  margin-left: 35px;
+}
+
+.milestone_row ::ng-deep  .mat-tab-header{
+  display: none;
+}
+.customer-profile {
+  width: 15%;
+  border-radius: 69%;
+  margin: 10px;
+}
+.center-align {
+  text-align: center;
+}
+.review-align {
+  width: 500%;
+  margin-left: 5pc;
+}
+.image-pad {
+  padding: 15px;
+}
+.review-image {
+  width: 7%;
+  margin: 20px;
+}
+.review-title {
+  font-size: 15px;
+  padding: 10px 50px;
+  color: darkgreen;
+}
+.star-color {
+  color: gold;
+}

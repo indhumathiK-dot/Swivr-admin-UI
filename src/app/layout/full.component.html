@@ -56,6 +56,10 @@
         <!-- app header component - style you can find in header.scss / header.component.ts-->
         <!-- ============================================================== -->
         <div class="header_search_call">
+          <div *ngIf="this.router.url === '/profile'">Profile</div>
+          <div *ngIf="this.router.url === '/cosmetologist'">Cosmetologist Management</div>
+          <div *ngIf="this.router.url === '/services'">Service Management</div>
+          <div *ngIf="type">{{type}}</div>
           <app-header></app-header>
         </div>
       </mat-toolbar>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserServiceService} from '../service/user-service.service';
 
 @Component({
   selector: 'app-password-reset',
@@ -10,8 +11,11 @@ export class PasswordResetComponent implements OnInit {
   resetForm: FormGroup;
   passwordCheck = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private userServiceService: UserServiceService) {
+    this.userServiceService.headerNameUpdate.next('Profile');
     this.resetForm = this.fb.group({
+      oldPassword: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required, this.MustMatch('password', 'confirmPassword')]
     });
@@ -43,7 +47,7 @@ export class PasswordResetComponent implements OnInit {
 
   onSubmit() {
     let confirmPass = this.resetForm.controls['confirmPassword'].value;
-    if (!this.resetForm.value.password || !this.resetForm.value.confirmPassword || this.resetForm.value.password !== this.resetForm.value.confirmPassword) {
+    if (!this.resetForm.value.password || !confirmPass || this.resetForm.value.password !== confirmPass) {
 
       if (!this.resetForm.value.password || !confirmPass ) {
         this.resetForm.controls.confirmPassword.setErrors({ mustMatch: true });
@@ -57,12 +61,15 @@ export class PasswordResetComponent implements OnInit {
     } else {
 
       this.passwordCheck = false;
-      let email = sessionStorage.getItem('email');
       let data = {
-        email,
-        password: this.resetForm.value.password,
-        confirm: this.resetForm.value.confirmPassword
+        oldPassword: this.resetForm.value.oldPassword,
+        password: this.resetForm.value.password
       };
+      this.userServiceService.resetPassword(data).subscribe((data: any) => {
+        if (data.statusCode === 200) {
+          console.log('done');
+        }
+      });
     }
   }
 

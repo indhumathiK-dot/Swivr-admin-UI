@@ -16,4 +16,8 @@ export class CosmetologistServiceService {
   cosmetologistDetails(userKey: string | undefined){
     return this.http.get(API.COSMETOLOGIST_DETAILS + '?userKey=' + userKey);
   }
+
+  getAppointmentList(key: any, type: any, start: number, limit: number){
+    return this.http.get(API.GET_APPOINTMENT_LIST + '?key=' + key + '&type=' + type + '&start=' + start + '&limit=' + limit);
+  }
 }

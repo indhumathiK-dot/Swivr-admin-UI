@@ -34,6 +34,8 @@ import { CosmetologistListComponent } from './cosmetologist-management/cosmetolo
 import { CosmetologistDetailsComponent } from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
 import {TreeTableModule} from 'primeng/treetable';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { ClientListComponent } from './client-management/client-list/client-list.component';
+import { ClientDetailsComponent } from './client-management/client-details/client-details.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     ProfileComponent,
     ServiceManagementComponent,
     CosmetologistListComponent,
-    CosmetologistDetailsComponent
+    CosmetologistDetailsComponent,
+    ClientListComponent,
+    ClientDetailsComponent
   ],
   imports: [
     BrowserModule,

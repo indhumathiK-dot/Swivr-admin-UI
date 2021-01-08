@@ -15,6 +15,7 @@ public type: string = '';
   constructor(public router: Router,
               private userServiceService: UserServiceService) {
     this.isUserLoggedSubscription = this.userServiceService.headerNameUpdate.subscribe((isUserLogged: string) => {
+      this.type = '';
       this.type = isUserLogged;
     });
   }
@@ -25,5 +26,10 @@ public type: string = '';
   }
 
   ngOnDestroy(): void {
+  }
+
+  navigateMenu(url: string) {
+    this.type = '';
+    this.router.navigate([url]);
   }
 }

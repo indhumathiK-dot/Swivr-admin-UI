@@ -14,7 +14,8 @@
   padding: 10px 0;
   margin: 0 0 0 25px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: 600;
   color: #FFFFFF;
   display: block;
   font-family: Raleway, sans-serif;
@@ -181,4 +182,8 @@
 .header_search_call {
   padding-left: 250px;
   color: white;
+  font-size: 23px;
+}
+.active-menu {
+  background: #4BD13D;
 }

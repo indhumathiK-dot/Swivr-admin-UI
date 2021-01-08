@@ -1,15 +1,40 @@
+#ticketCom {
+  background: white;
+  font-family: Raleway, sans-serif;
+}
+#tickets-cont-dev {
+  background: white;
+  min-height: 700px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+}
+
+#tickets-cont-dev mat-card {
+  margin:  0;
+}
+#ticketCom .content {
+  background: #f2f3f5;
+  padding: 15px;
+}
 .icon-size{
   font-size:1.8em;
 }
 table{
   width: 100%;
   border-collapse: inherit !important;
+  font-family: Raleway, sans-serif;
 }
 .mat-header-cell{
-  font-size:14px !important;
+  font-size: 17px !important;
+  background: #4BD13D !important;
+  color: white;
+  font-weight: 600;
 }
 .mat-cell-size{
-  font-size: 14px !important;
+  font-size: 15px;
+  color: #585858;
+  font-weight: 500;
+  border: none;
 }
 .delete-icon{
   color:#f05050;
@@ -22,9 +47,6 @@ table{
 .edit-icon{
   color:#337ab7;
   font-size: 16px!important;
-}
-.border-list{
-  padding-left:10px;
 }
 .text-span{
   color:red;
@@ -178,9 +200,6 @@ td:first-child, th:first-child {
   padding: 5px 0;
 }
 
-table.table-format.mat-table {
-  margin-top: -5px;
-}
 .no-data {
   text-align: center;
   margin-top: 10px;
@@ -211,4 +230,7 @@ table.table-format.mat-table {
 .cancel-button {
   margin: 17px;
   background: lightgray;
+}
+tr:nth-child(even) {
+  background-color: #e0ebe0
 }

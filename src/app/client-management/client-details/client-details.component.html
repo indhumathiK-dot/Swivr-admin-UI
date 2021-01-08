@@ -19,7 +19,7 @@
             <div class="panel-custom clearfix">
               <div class="profile-section clearfix" style="background: #f4f4f7;">
                 <img src="{{clientDetails?.userProfileUrl}}"
-                     class="profile-pic">
+                     class="profile-pic" (error)="setDefaultPic('customer', '')">
                 <div class="display">
                   <div class="profile-name-design">{{clientDetails?.fullName}}</div>
                 </div>
@@ -55,7 +55,7 @@
                   <div class="col-md-6 row">
                     <div class="col-md-6">
                       <div> <span class="left_labels">
-                          Contact Number : </span></div>
+                          Contact Number: </span></div>
                     </div>
                     <div class="col-md-6">
                       <div><span><strong>{{clientDetails?.phone}}</strong></span></div>
@@ -85,7 +85,7 @@
               <p-treeTable [value]="appointmentList"  [(selection)]="selectedPortfolio">
                 <ng-template pTemplate="header">
                   <tr class="no_border  milestone-header">
-                    <th class="milestone_name center-align">Customer</th>
+                    <th class="milestone_name center-align">Cosmetologist</th>
                     <th class="milestone_name">Service Time</th>
                     <th class="milestone_start_dt">Appointment Date</th>
                     <th class="milestone_start_dt">Appointment Status</th>
@@ -97,7 +97,7 @@
                   <tr class="no_border">
                     <td class="data-format milestone_name">
                       <!--                      <p-treeTableToggler *ngIf="node.review.length > 0" class="toggler-class" [rowNode]="rowNode"></p-treeTableToggler>-->
-                      <span><img class="customer-profile" src="{{node?.shopDetails.profileUrl}}"></span>
+                      <span><img class="customer-profile" src="{{node?.shopDetails.profileUrl}}" (error)="setDefaultPic('appointment', node)"></span>
                       <span class="data_format" (click)="toggleNode(rowNode)" *ngIf="node.review.length > 0">{{node?.shopDetails.shopName}}</span>
                       <span class="data_format" *ngIf="node.review.length === 0">{{node?.shopDetails.shopName}}</span>
                       <span *ngIf="node?.review.length">

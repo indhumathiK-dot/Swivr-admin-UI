@@ -1,8 +1,26 @@
+<div id="ticketCom">
+  <!-- Main content -->
+  <section class="content">
+    <div id="tickets-cont-dev">
+
+
+<!--      <mat-grid-list cols="4" rowHeight="4:2">-->
+<!--        <mat-grid-tile *ngFor="let service of servicesList">-->
+<!--          <div>-->
+<!--            <img src="{{service.serviceImageUrl}}">-->
+<!--            <div>-->
+<!--              {{service.serviceName}}-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          </mat-grid-tile>-->
+<!--      </mat-grid-list>-->
+
+
 <div class="row-main row">
   <div class="col-sm-6">
-    <div class="border-list roles_policies_tbl">
+    <div class="roles_policies_tbl">
 
-      <table mat-table [dataSource]="dataSource" class="table-format">
+      <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="Service Image">
           <th mat-header-cell *matHeaderCellDef class="mat-header-size">Service Image</th>
           <td mat-cell *matCellDef="let data" class="mat-cell-size">
@@ -31,7 +49,7 @@
             </a>
             <a class="btn btn-sm btn-action">
               <div class="ripple">
-                <button class="btn btn-assigned">
+                <button class="btn btn-assigned" (click)="serviceDelete(data.id)">
                   <i class="fas fa-trash-alt delete-icon"></i>
                 </button>
               </div>
@@ -74,7 +92,7 @@
                     <div class="btn btn-default btn-file">
                         <span class="fileinput-new">
                           <input type="hidden" value="" name="">
-                           <input #inputFile class="input-file" type="file" id="myFiles" accept=".png, .jpg, .jpeg">
+                           <input #inputFile class="input-file" type="file" id="myFiles" accept=".svg, .jpg, .jpeg">
                        </span>
                     </div>
                   </div>
@@ -94,4 +112,7 @@
       </div>
     </mat-card>
   </div>
+</div>
+    </div>
+  </section>
 </div>

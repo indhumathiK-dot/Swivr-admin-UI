@@ -1,15 +1,18 @@
+<div id="ticketCom">
+  <!-- Main content -->
+  <section class="content">
+    <div id="tickets-cont-dev">
+
 <div class="row-main row">
   <div class="col-sm-12">
     <div class="border-list roles_policies_tbl">
 
-      <table mat-table [dataSource]="dataSource" class="table-format">
+      <table mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="Cosmetologist Profile">
           <th mat-header-cell *matHeaderCellDef class="mat-header-size">Cosmetologist Profile</th>
-          <td mat-cell *matCellDef="let data" class="mat-cell-size"><a style="cursor: pointer">
-            <div class="width-roleName">
-              <img class="profile-width" src="{{data.profileUrl}}">
-            </div>
+          <td mat-cell *matCellDef="let data; let i = index" class="mat-cell-size"><a style="cursor: pointer">
+            <img class="profile-width" src="{{data.profileUrl}}" (error)="setDefaultPic(i)">
           </a>
           </td>
         </ng-container>
@@ -60,4 +63,7 @@
       <mat-paginator #paginator [pageSizeOptions]="pageSizeArray" showFirstLastButtons (page)="onChange($event)" [length]="rowCount" [pageSize]="limit"></mat-paginator>
     </div>
   </div>
+</div>
+    </div>
+  </section>
 </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {API} from './constant';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
@@ -8,11 +8,16 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class UserServiceService {
   public updateIsUserLogged = new BehaviorSubject(false);
+  public headerNameUpdate = new BehaviorSubject('');
 
   constructor(private http: HttpClient) { }
 
   login(data: any){
     return this.http.post(API.LOGIN, data);
+  }
+
+  resetPassword(data: any){
+    return this.http.post(API.RESET_PASSWORD, data);
   }
 
   profileView(){

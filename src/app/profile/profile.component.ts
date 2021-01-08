@@ -18,10 +18,11 @@ export class ProfileComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private userServiceService: UserServiceService) {
     this.profileForm = this.fb.group({
-      username: [],
+      userName: [],
       email: [],
       contact: [],
-      image: []
+      image: [],
+      fullName: []
     });
   }
   ngOnInit(): void {
@@ -54,7 +55,8 @@ export class ProfileComponent implements OnInit {
       this.userServiceService.imageUpload('ADMIN', formData).subscribe((res: any) => {
         if (res.statusCode === 200) {
           let data = {
-            fullName: this.profileForm.value.username,
+            fullName: this.profileForm.value.fullName,
+            userName: this.profileForm.value.userName,
             email: this.profileForm.value.email,
             phone: this.profileForm.value.contact,
             adminProfile: res.url
@@ -69,9 +71,10 @@ export class ProfileComponent implements OnInit {
       });
     } else {
       let data = {
-        fullName: this.profileForm.value.username,
+        fullName: this.profileForm.value.fullName,
         email: this.profileForm.value.email,
-        phone: this.profileForm.value.contact
+        phone: this.profileForm.value.contact,
+        userName: this.profileForm.value.userName
       };
       this.userServiceService.profileUpdate(data).subscribe((data: any) => {
         if (data.statusCode === 200) {
@@ -85,9 +88,10 @@ export class ProfileComponent implements OnInit {
   editUpdate(type: string) {
     this.isUpdate = type === 'edit';
     this.profileForm.patchValue({
-      username: this.profileDetails.fullName,
+      userName: this.profileDetails.userName,
       email: this.profileDetails.email,
-      contact: this.profileDetails.phone
+      contact: this.profileDetails.phone,
+      fullName: this.profileDetails.fullName
     });
   }
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {CosmetologistServiceService} from '../../service/cosmetologist-service.service';
+import {ClientServiceService} from '../../service/client-service.service';
 
 @Component({
-  selector: 'app-cosmetologist-list',
-  templateUrl: './cosmetologist-list.component.html',
-  styleUrls: ['./cosmetologist-list.component.scss']
+  selector: 'app-client-list',
+  templateUrl: './client-list.component.html',
+  styleUrls: ['./client-list.component.scss']
 })
-export class CosmetologistListComponent implements OnInit {
+export class ClientListComponent implements OnInit {
   dataSource = new MatTableDataSource();
   columnTitle: string[] | undefined;
   rowCount: number = 0;
@@ -18,15 +18,15 @@ export class CosmetologistListComponent implements OnInit {
   event: any;
   pageSizeArray = [15, 50, 100];
 
-  constructor(private cosmetologistServiceService: CosmetologistServiceService) {
-    this.columnTitle = ['Cosmetologist Profile', 'Cosmetologist Name', 'Email', 'Phone', 'Shop name', 'Action'];
+  constructor(private clientServiceService: ClientServiceService) {
+    this.columnTitle = ['Client Profile', 'Client Name', 'Email', 'Phone', 'Action'];
   }
 
   ngOnInit(): void {
-    this.getCosmetologistList(0, 0);
+    this.getClientList(0, 0);
   }
 
-  getCosmetologistList(count = 0, previousPageIndex = 0) {
+  getClientList(count = 0, previousPageIndex = 0) {
 
     if (count === 0) {
       if (count <= previousPageIndex) {
@@ -38,7 +38,7 @@ export class CosmetologistListComponent implements OnInit {
       this.start = count * this.pageSize;
     }
 
-    this.cosmetologistServiceService.cosmetologistList(this.start, this.limit).subscribe((data: any) => {
+    this.clientServiceService.clientList(this.start, this.limit).subscribe((data: any) => {
       if (data.statusCode === 200) {
         this.dataSource.data = data.list;
         this.rowCount = data.count;
@@ -54,7 +54,7 @@ export class CosmetologistListComponent implements OnInit {
       this.pageSize = event.pageSize;
     }
     this.prevPageIndex = event.previousPageIndex;
-    this.getCosmetologistList(event.pageIndex, event.previousPageIndex);
+    this.getClientList(event.pageIndex, event.previousPageIndex);
   }
 
 }

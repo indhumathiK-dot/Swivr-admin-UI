@@ -7,6 +7,8 @@ import {ServiceManagementComponent} from './service-management/service-managemen
 import {CosmetologistListComponent} from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
 import {CosmetologistDetailsComponent} from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
 import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
+import {ClientListComponent} from './client-management/client-list/client-list.component';
+import {ClientDetailsComponent} from './client-management/client-details/client-details.component';
 
 const routes: Routes = [
   // {path: '*', component: LoginComponent},
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path: 'cosmetologist', component: CosmetologistListComponent},
   {path: 'cosmetologist/details/:id', component: CosmetologistDetailsComponent},
   {path: 'transactionHistory', component: TransactionHistoryComponent},
+  {path: 'client', component: ClientListComponent},
+  {path: 'client/details/:id', component: ClientDetailsComponent},
   ];
 
 @NgModule({

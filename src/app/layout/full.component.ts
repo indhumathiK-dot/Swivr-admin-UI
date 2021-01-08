@@ -1,5 +1,7 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {MediaMatcher} from '@angular/cdk/layout';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {UserServiceService} from '../service/user-service.service';
+import {ISubscription} from 'rxjs-compat/Subscription';
 
 @Component({
   selector: 'app-full',
@@ -7,14 +9,27 @@ import {MediaMatcher} from '@angular/cdk/layout';
   styleUrls: ['./full.component.scss']
 })
 export class FullComponent implements OnInit {
+public type: string = '';
+  private isUserLoggedSubscription: ISubscription;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef,
-              private media: MediaMatcher) {
+  constructor(public router: Router,
+              private userServiceService: UserServiceService) {
+    this.isUserLoggedSubscription = this.userServiceService.headerNameUpdate.subscribe((isUserLogged: string) => {
+      this.type = '';
+      this.type = isUserLogged;
+    });
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe(event => {
+    });
   }
 
   ngOnDestroy(): void {
+  }
+
+  navigateMenu(url: string) {
+    this.type = '';
+    this.router.navigate([url]);
   }
 }

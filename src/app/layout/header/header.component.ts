@@ -30,4 +30,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy() {
   }
+
+  userProfile(type: string) {
+    if(type === 'profile') {
+      this.router.navigate(['profile']);
+    } else {
+      this.router.navigate(['password-reset']);
+    }
+  }
 }

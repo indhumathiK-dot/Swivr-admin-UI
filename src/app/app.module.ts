@@ -32,6 +32,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { CosmetologistListComponent } from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
 import { CosmetologistDetailsComponent } from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import {TreeTableModule} from 'primeng/treetable';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { ClientListComponent } from './client-management/client-list/client-list.component';
+import { ClientDetailsComponent } from './client-management/client-details/client-details.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,9 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
     ServiceManagementComponent,
     CosmetologistListComponent,
     CosmetologistDetailsComponent,
-    TransactionHistoryComponent
+    TransactionHistoryComponent,
+    ClientListComponent,
+    ClientDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +77,8 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
     MatDialogModule,
     BrowserModule,
     MatPaginatorModule,
+    TreeTableModule,
+    InfiniteScrollModule
   ],
   providers: [
     {

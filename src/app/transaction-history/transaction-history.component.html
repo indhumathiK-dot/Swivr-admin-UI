@@ -1,40 +1,32 @@
 <h1 class="serivice-title">Transaction History</h1>
-<hr class="hr-class">
 <div>
   <section>
     <div>
 <!--      <section class="panel">-->
         <div class="panel-body">
-          <div>
+
             <ul class="list-group" *ngFor="let activity of dataSource">
               <li class="list-group-item">
                 <a class="pull-left mr-sm">
-                  <img class="img-circle" style="width: 30px; margin-right: 10px; height: 29px; border: 1px solid #aaa;
-                    "
-                       src="{{activity.custProfileUrl}}">
+                  <img class="img-circle" src="{{activity.custProfileUrl}}">
                 </a>
                 <a class="clear">
-                  <small class="pull-right">
-                    {{activity.createdTime}}
-                  </small>
-                  <strong class="block" style="font-size: small">
-                    {{activity.name.substring(0, 1).toUpperCase() +
+                  <strong class="block">
+                    &nbsp;&nbsp;&nbsp;{{activity.name.substring(0, 1).toUpperCase() +
                   activity.name.substring(1).toLowerCase()}}
-                  </strong><br>
-                  <small>
-                    {{activity.message}}.<strong style="color:#000">
-                    <em>
-<!--                      {{activity.value1}}.-->
-                    </em>
-                    <em>
-<!--                      {{activity.value2}}-->
-
-                    </em></strong>
-                  </small>
+                  </strong>
                 </a>
+                <a class="pull-right">
+                 {{ activity.createdTime | date:'medium' }}
+                </a>
+                <div class="message" style="font-weight: bold; color: #337ab7">
+                  <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                  {{activity.message}}<strong style="color:#007bff">
+                </strong>
+                </div>
               </li>
             </ul>
-          </div>
+
         </div>
 <!--      </section>-->
     </div>

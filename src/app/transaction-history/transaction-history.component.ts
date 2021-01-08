@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
+import {ServiceManagementService} from "../service/service-management.service";
 
 @Component({
   selector: 'app-transaction-history',
@@ -16,19 +16,29 @@ export class TransactionHistoryComponent implements OnInit {
   limit: number = 15;
   event: any;
   pageSizeArray = [15, 50, 100];
+  // private data:;
 
-  constructor() {
+  constructor(private serviceManagementService:ServiceManagementService) {
     this.columnTitle = ['Customer Profile', 'Customer Name', 'Transaction Id', 'Appointment Id', 'Cosmetologist Name', 'Message', 'Action'];
   }
 
   ngOnInit(): void {
+    let data = {
+      start : 0,
+      limit : 10
+    };
+    this.serviceManagementService.getTransactionHistory(data).subscribe((res: any) => {
+      if (res.statusCode === 200) {
+        console.log(res)
+      }
+    });
     this.dataSource = [
       {
         name:"priya",
         transactionId: "77",
         appointmentId: "62",
         cosmetologistName: "Geo",
-        message: "priya is paid $132.00 to Geo",
+        message: "Priya is paid $132.00 to Geo",
         custProfileUrl:"https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg",
         createdTime:"2020-12-22T19:51:02.945Z"
       },

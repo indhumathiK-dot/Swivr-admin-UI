@@ -36,6 +36,7 @@ import {TreeTableModule} from 'primeng/treetable';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { ClientListComponent } from './client-management/client-list/client-list.component';
 import { ClientDetailsComponent } from './client-management/client-details/client-details.component';
+import { PayoutManagementComponent } from './payout-management/payout-management.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ClientDetailsComponent } from './client-management/client-details/clien
     CosmetologistListComponent,
     CosmetologistDetailsComponent,
     ClientListComponent,
-    ClientDetailsComponent
+    ClientDetailsComponent,
+    PayoutManagementComponent
   ],
   imports: [
     BrowserModule,

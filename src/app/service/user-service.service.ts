@@ -31,4 +31,12 @@ export class UserServiceService {
   imageUpload(type: string, file: any){
     return this.http.post(API.IMAGE_UPLOAD + '?type=' + type, file);
   }
+
+  getPayoutDetails(){
+    return this.http.get(API.PAYOUT_DETAILS);
+  }
+
+  addUpdatePayout(data: any) {
+    return this.http.post(API.ADD_UPDATE_PAYOUT, data) 
+  }
 }

@@ -8,6 +8,7 @@ import {CosmetologistListComponent} from './cosmetologist-management/cosmetologi
 import {CosmetologistDetailsComponent} from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
 import {ClientListComponent} from './client-management/client-list/client-list.component';
 import {ClientDetailsComponent} from './client-management/client-details/client-details.component';
+import { PayoutManagementComponent } from './payout-management/payout-management.component';
 
 const routes: Routes = [
   // {path: '*', component: LoginComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'cosmetologist/details/:id', component: CosmetologistDetailsComponent},
   {path: 'client', component: ClientListComponent},
   {path: 'client/details/:id', component: ClientDetailsComponent},
+  {path: 'payout', component: PayoutManagementComponent},
   ];
 
 @NgModule({

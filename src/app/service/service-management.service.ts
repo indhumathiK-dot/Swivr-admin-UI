@@ -24,4 +24,8 @@ export class ServiceManagementService {
     return this.http.get(API.TRANSACTION_HIST0RY, data);
   }
 
+  serviceDelete(serviceId: number){
+    return this.http.delete(API.SERVICE_DELETE + '?serviceId=' + serviceId);
+  }
+
 }

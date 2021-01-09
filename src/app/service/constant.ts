@@ -12,6 +12,7 @@ export const API = {
   SERVICE_ADD: API_ENDPOINT_URL + '/appointments/defaultServices/add',
   SERVICE_UPDATE: API_ENDPOINT_URL + '/appointments/defaultServices/update',
   TRANSACTION_HIST0RY: API_ENDPOINT_URL + '/Admin/AdminController_transactionHistory',
+  SERVICE_DELETE: API_ENDPOINT_URL + '/appointments/defaultServices/delete',
   COSMETOLOGIST_LIST: API_ENDPOINT_URL + '/admin/getCosmetologistList',
   COSMETOLOGIST_DETAILS: API_ENDPOINT_URL + '/admin/cosmetologistDetails',
   GET_APPOINTMENT_LIST: API_ENDPOINT_URL + '/admin/appointmentList',

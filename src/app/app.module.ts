@@ -36,6 +36,7 @@ import {TreeTableModule} from 'primeng/treetable';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { ClientListComponent } from './client-management/client-list/client-list.component';
 import { ClientDetailsComponent } from './client-management/client-details/client-details.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ClientDetailsComponent } from './client-management/client-details/clien
     BrowserModule,
     MatPaginatorModule,
     TreeTableModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatGridListModule
   ],
   providers: [
     {

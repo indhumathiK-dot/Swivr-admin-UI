@@ -69,8 +69,9 @@ export class CosmetologistDetailsComponent implements OnInit {
   counter(i: number) {
     return new Array(i);
   }
-  setDefaultPic() {
-    console.log('sdsd')
-    this.pic = "./assets/img/logo.png";
+  setDefaultPic(type: string, value: any) {
+    if (this.cosmetologistDetails) {
+      type === 'appointment' ? value.customerDetails.profileUrl = '/assets/img/user_profile.jpg' :  (type === 'shop' ? this.shopDetails.shopImageUrl = '/assets/img/shop_profile.png' : this.cosmetologistDetails.userProfileUrl = '/assets/img/user_profile.jpg');
+    }
   }
 }

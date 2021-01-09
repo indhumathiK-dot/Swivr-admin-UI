@@ -24,7 +24,7 @@
               <li class="menu-hover" [ngClass]="router.url === '/cosmetologist' || type === 'Cosmetologist Management' ? 'active-menu': 'inactive-menu'"><a (click)="navigateMenu('/cosmetologist')">Cosmotologist Management</a> </li>
               <li class="menu-hover" [ngClass]="router.url === '/client' || type === 'Client Management' ? 'active-menu': 'inactive-menu'"><a (click)="navigateMenu('/client')">Client Management</a> </li>
               <li class="menu-hover" [ngClass]="router.url === '/payout' || type === 'Payout Management' ? 'active-menu': 'inactive-menu'">  <a (click)="navigateMenu('/payout')">Payout Management</a> </li>
-              <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Transaction History</a> </li>
+              <li class="menu-hover">  <a [routerLink]="'/transactionHistory'">Transaction History</a> </li>
               <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Settings</a> </li>
 
             </ul>

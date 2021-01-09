@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +31,7 @@ import { ServiceManagementComponent } from './service-management/service-managem
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CosmetologistListComponent } from './cosmetologist-management/cosmetologist-list/cosmetologist-list.component';
 import { CosmetologistDetailsComponent } from './cosmetologist-management/cosmetologist-details/cosmetologist-details.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 import {TreeTableModule} from 'primeng/treetable';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { ClientListComponent } from './client-management/client-list/client-list.component';
@@ -48,6 +48,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ServiceManagementComponent,
     CosmetologistListComponent,
     CosmetologistDetailsComponent,
+    TransactionHistoryComponent,
     ClientListComponent,
     ClientDetailsComponent,
     PayoutManagementComponent

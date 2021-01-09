@@ -34,9 +34,6 @@
 
       </div>
 
-
-
-
     </mat-sidenav>
     <!-- ============================================================== -->
     <!-- Sidebar - style you can find in sidebar.scss -->
@@ -82,8 +79,15 @@
 
     <mat-sidenav-content class="page-wrapper">
 
-      <div class="page-content" id="pageBodyContent" #scrollBody>
+      <div class="page-content" id="pageBodyContent">
+        <div id="ticketCom">
+          <!-- Main content -->
+          <section class="content">
+            <div id="tickets-cont-dev">
         <router-outlet></router-outlet>
+            </div>
+          </section>
+        </div>
         <app-footer></app-footer>
       </div>
     </mat-sidenav-content>

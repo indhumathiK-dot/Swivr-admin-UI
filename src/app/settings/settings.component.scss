@@ -1,15 +1,31 @@
-/*
 table {
   width: 100%;
 }
-*/
 
 p {
   font-family: Lato;
 }
 
 .tab-demo {
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
   padding-bottom: 50px;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label{
+  height: 48px;
+  padding: 0 24px;
+  cursor: pointer;
+  box-sizing: border-box;
+  opacity: .6;
+  min-width: 160px;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+  width: 50%;
+}
+.dxg {
+  background-color: #00ff00;
 }

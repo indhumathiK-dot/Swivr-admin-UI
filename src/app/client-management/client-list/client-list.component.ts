@@ -57,4 +57,9 @@ export class ClientListComponent implements OnInit {
     this.getClientList(event.pageIndex, event.previousPageIndex);
   }
 
+  setDefaultPic(index: number) {
+    // @ts-ignore
+    this.dataSource.data[index].profileUrl = '/assets/img/user_profile.jpg';
+
+  }
 }

@@ -12,7 +12,7 @@ import {ClientDetailsComponent} from './client-management/client-details/client-
 import {SettingsComponent} from "./settings/settings.component";
 
 const routes: Routes = [
-  // {path: '*', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'password-reset', component: PasswordResetComponent},
   {path: 'profile', component: ProfileComponent},

@@ -57,4 +57,8 @@ export class CosmetologistListComponent implements OnInit {
     this.getCosmetologistList(event.pageIndex, event.previousPageIndex);
   }
 
+  setDefaultPic(index: number) {
+    // @ts-ignore
+    this.dataSource.data[index].profileUrl = '/assets/img/user_profile.jpg';
+  }
 }

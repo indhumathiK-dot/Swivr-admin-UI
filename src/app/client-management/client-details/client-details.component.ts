@@ -48,7 +48,6 @@ export class ClientDetailsComponent implements OnInit {
         this.appointmentList = this.appointmentList.concat(data.list);
         // this.appointmentList = data.list;
         this.appointmentCount = data.count;
-        console.log(this.appointmentList)
       }
     });
   }
@@ -67,5 +66,11 @@ export class ClientDetailsComponent implements OnInit {
 
   counter(i: number) {
     return new Array(i);
+  }
+
+  setDefaultPic(type: string, value: any) {
+    if (this.clientDetails) {
+      type === 'appointment' ? value.shopDetails.profileUrl = '/assets/img/shop_profile.png' : this.clientDetails.userProfileUrl = '/assets/img/user_profile.jpg';
+    }
   }
 }

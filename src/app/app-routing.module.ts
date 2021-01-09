@@ -10,7 +10,7 @@ import {ClientListComponent} from './client-management/client-list/client-list.c
 import {ClientDetailsComponent} from './client-management/client-details/client-details.component';
 
 const routes: Routes = [
-  // {path: '*', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'password-reset', component: PasswordResetComponent},
   {path: 'profile', component: ProfileComponent},

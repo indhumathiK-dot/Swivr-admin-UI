@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
 import {ServiceManagementService} from '../service/service-management.service';
+import { UserServiceService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-service-management',
@@ -23,13 +24,16 @@ export class ServiceManagementComponent implements OnInit {
   serviceText: string | undefined;
   public isUpdate: boolean = false;
   private serviceId: any;
+  uploadedFiles: Array<File> = [] ;
+  profileUrl: any = '';
 
   constructor(public formBuilder: FormBuilder,
-              public serviceManagementService: ServiceManagementService) {
+              public serviceManagementService: ServiceManagementService,
+              public userServiceService: UserServiceService) {
     this.columnTitle = ['Service Image', 'Service Name', 'Action'];
     this.serviceForm = this.formBuilder.group({
-      serviceName: [''],
-      serviceImage: ['']
+      serviceName: '',
+      serviceImage: ''
     });
   }
 
@@ -77,29 +81,72 @@ export class ServiceManagementComponent implements OnInit {
   }
 
   addUpdateService() {
+    console.log(this.serviceForm)
     if (this.isUpdate) {
       let data = {
         id: this.serviceId,
-        serviceName: this.serviceForm.value.serviceName
+        serviceName: this.serviceForm.value.serviceName,
+        serviceImageUrl: this.serviceForm.value.serviceImage
       };
-      this.serviceManagementService.serviceUpdate(data).subscribe((data: any) => {
-        if (data.statusCode === 200) {
-          this.serviceText = 'Create Service';
-          this.serviceForm.reset();
-          this.getServiceList(0, 0);
+      if (this.uploadedFiles.length) {
+        let formData = new FormData();
+        for (var i = 0; i < this.uploadedFiles.length; i++) {
+          formData.append("file", this.uploadedFiles[i], this.uploadedFiles[i].name);
         }
-      });
+        this.userServiceService.imageUpload('SERVICES', formData).subscribe((res: any) => {
+          if (res.statusCode === 200) {
+            data.serviceImageUrl = res.url;
+            this.serviceManagementService.serviceUpdate(data).subscribe((data: any) => {
+              if (data.statusCode === 200) {
+                this.serviceText = 'Create Service';
+                this.serviceForm.reset();
+                this.getServiceList(0, 0);
+              }
+            });
+          } else {
+            console.log("image upload failed", res)
+          }
+        });
+      } else {
+        this.serviceManagementService.serviceUpdate(data).subscribe((data: any) => {
+          if (data.statusCode === 200) {
+            this.serviceText = 'Create Service';
+            this.serviceForm.reset();
+            this.getServiceList(0, 0);
+          }
+        });
+      }
     } else {
       let data = {
-        serviceName: this.serviceForm.value.serviceName
+        serviceName: this.serviceForm.value.serviceName,
+        serviceImageUrl: this.serviceForm.value.serviceImage
       };
-      this.serviceManagementService.serviceAdd(data).subscribe((data: any) => {
-        if (data.statusCode === 201) {
-          this.serviceText = 'Create Service';
-          this.serviceForm.reset();
-          this.getServiceList(0, 0);
+      if (this.uploadedFiles.length) {
+        let formData = new FormData();
+        for (var i = 0; i < this.uploadedFiles.length; i++) {
+          formData.append("file", this.uploadedFiles[i], this.uploadedFiles[i].name);
         }
-      });
+        this.userServiceService.imageUpload('SERVICES', formData).subscribe((res: any) => {
+          if (res.statusCode === 200) {
+            data.serviceImageUrl = res.url;
+            this.serviceManagementService.serviceAdd(data).subscribe((data: any) => {
+              if (data.statusCode === 201) {
+                this.serviceText = 'Create Service';
+                this.serviceForm.reset();
+                this.getServiceList(0, 0);
+              }
+            });
+          }
+        });
+      } else {
+        this.serviceManagementService.serviceAdd(data).subscribe((data: any) => {
+          if (data.statusCode === 201) {
+            this.serviceText = 'Create Service';
+            this.serviceForm.reset();
+            this.getServiceList(0, 0);
+          }
+        });
+      }
     }
 
   }
@@ -116,9 +163,13 @@ export class ServiceManagementComponent implements OnInit {
     this.serviceText = 'Update Service';
     this.serviceId = data.id;
     this.isUpdate = true;
+    this.profileUrl = data.profileUrl;
     this.serviceForm.patchValue( {
-      serviceName: data.serviceName
+      serviceName: data.serviceName,
+      // serviceImage: data.serviceImageUrl
     });
+    this.serviceForm.value.serviceImage = data.serviceImageUrl;
+    console.log(this.serviceForm);
   }
 
   serviceDelete(serviceId: number) {
@@ -127,5 +178,13 @@ export class ServiceManagementComponent implements OnInit {
         this.getServiceList(0, 0);
       }
     });
+  }
+
+  fileChange(element: any) {
+    this.uploadedFiles = element.target.files;
+  }
+
+  setDefaultPic() {
+      this.profileUrl = '/assets/img/user_profile.jpg';
   }
 }

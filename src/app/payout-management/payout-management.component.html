@@ -2,7 +2,7 @@
 
 <div class="details" *ngIf="!isUpdate">
 
-                <!-- <form [formGroup]="payoutForm"> -->
+                <form [formGroup]="payoutForm">
                     <h3 class="title title-payout">Payout details <span><mat-icon class="create-icon" (click)="editUpdate()">create</mat-icon></span></h3>
                     <div class="line-height">
                       <div class="invLine"></div>
@@ -32,7 +32,7 @@
                             <div class="bold-font">Stripe Account Name:</div>
                         </div>
                         <div class="right-half">
-                            <div><span><strong>SWIVR-DEV</strong></span></div>
+                            <div><span><strong>{{payoutDetails?.stripeName}}</strong></span></div>
                         </div>
 
                         <div class="invLine"></div>
@@ -54,9 +54,9 @@
                         </div>
 
                     </div>
-      
-                <!-- </form> -->
-      
+
+                </form>
+
             </div>
 
 <div class="details" *ngIf="isUpdate">

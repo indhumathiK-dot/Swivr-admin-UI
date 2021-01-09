@@ -27,7 +27,7 @@
               </div>
 
               <div class="right-half">
-                <div class="details-color">{{{profileDetails?.userName}}</div>
+                <div class="details-color">{{profileDetails?.userName}}</div>
 
                 <!-- <div><span><strong>{{profileDetails?.userName}}</strong></span></div> -->
               </div>
@@ -208,7 +208,7 @@
                       <div class="btn btn-default btn-file">
                         <span class="fileinput-new">
                           <input type="hidden" value="" name="">
-                           <input #inputFile class="input-file" type="file" id="myFiles" accept=".png, .jpg, .jpeg" (change)="fileChange($event)">
+                           <input #inputFile class="input-file" type="file" id="myFiles" accept=".png, .jpg, .jpeg, .png" (change)="fileChange($event)">
                        </span>
                       </div>
                     </div>

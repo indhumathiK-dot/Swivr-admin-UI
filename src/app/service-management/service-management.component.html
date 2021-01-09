@@ -8,7 +8,7 @@
           <td mat-cell *matCellDef="let data" class="mat-cell-size">
             <a style="cursor: pointer">
               <div class="width-roleName">
-                <img class="w-50" src="{{data.serviceImageUrl}}">
+                <img class="w-50 service-profile" src="{{data.profileUrl}}">
               </div>
             </a>
           </td>
@@ -69,19 +69,26 @@
                     </mat-form-field>
                   </div>
                 </div>
+                <div class="row div-row-form" *ngIf="profileUrl !== ''">
+                  <div class="col-sm-12">
+                    <div class="fileinput-new thumbnail" style="width: 150px;">
+                      <img class="w-profile" src="{{profileUrl}}" (error)="setDefaultPic()">
+                    </div>
+                  </div>
+                </div>
                 <div class="row div-row-form">
                   <div class="col-sm-12">
                     <div class="btn btn-default btn-file">
                         <span class="fileinput-new">
                           <input type="hidden" value="" name="">
-                           <input #inputFile class="input-file" type="file" id="myFiles" accept=".svg, .jpg, .jpeg">
+                           <input #inputFile class="input-file" type="file" id="myFiles" accept=".svg, .jpg, .jpeg, .png" (change)="fileChange($event)">
                        </span>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-4"></div>
-                  <div class="col-sm-8 div-col-createRole">
+                  <!-- <div class="col-sm-4"></div> -->
+                  <div class="col-sm-12 div-col-createRole">
                     <button name="submitBtn" mat-button class="service-update" type="submit" (click)="addUpdateService()">{{serviceText}}</button>
                     <button type="button" class="btn form-button-40 cancel-button" (click)="cancel()">Cancel</button>
                   </div>

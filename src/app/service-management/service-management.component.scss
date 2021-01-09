@@ -96,6 +96,7 @@ table{
   margin-top:5%;
   font-size: 14px;
   border-radius: 50px;
+  text-align: end;
 }
 .field_label{
   display: block;
@@ -175,7 +176,7 @@ td:first-child, th:first-child {
 }
 
 .form-button-40{
-  height: 40px!important;
+  height: 52% !important;
 }
 
 .table-fields {
@@ -215,4 +216,17 @@ td:first-child, th:first-child {
 }
 tr:nth-child(even) {
   background-color: #e0ebe0
+}
+
+.service-profile {
+  padding: 10px;
+  border-radius: 50%;
+  margin: 5px;
+  width: 38%!important;
+}
+
+.w-profile {
+  width: 60% !important;
+  padding-left: 18px;
+  margin: 10px 10px;
 }

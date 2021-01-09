@@ -94,4 +94,10 @@ export class ProfileComponent implements OnInit {
       fullName: this.profileDetails.fullName
     });
   }
+
+  setDefaultPic() {
+    if (this.profileDetails) {
+      this.profileDetails.adminProfileUrl = '/assets/img/user_profile.jpg';
+    }
+  }
 }

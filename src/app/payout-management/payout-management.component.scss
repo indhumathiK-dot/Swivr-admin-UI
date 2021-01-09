@@ -129,7 +129,7 @@
 
 
 .toggle-button input[type="checkbox"]:checked ~ .toggle-button-switch {
-  left: 32px;
+  left: 31px;
 }
 
 .toggle-button input[type="checkbox"]:checked ~ .btnchk-yes {
@@ -138,4 +138,18 @@
 
 .toggle-button input[type="checkbox"]:checked ~ .btnchk-no {
   display: none;
+}
+
+.toggle-button input[type="checkbox"]:checked ~ .btnch-yes {
+  display: block;
+  margin-left: 7px;
+}
+
+.toggle-button input[type="checkbox"]:checked ~ .btnch-no {
+  display: block;
+}
+
+.btnch-no {
+  margin-left: 7px;
+  position: absolute;
 }

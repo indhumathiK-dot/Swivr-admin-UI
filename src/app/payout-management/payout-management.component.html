@@ -6,7 +6,7 @@
   
             <div class="details" *ngIf="!isUpdate">
             
-                <form [formGroup]="payoutForm">
+                <!-- <form [formGroup]="payoutForm"> -->
                     <h3 class="title title-payout">Payout details <span><mat-icon class="create-icon" (click)="editUpdate()">create</mat-icon></span></h3>
                     <div class="line-height">
                       <div class="invLine"></div>
@@ -17,10 +17,10 @@
                       <div class="right-half">
                         <h4 class="heading mb-20">
                           <label class="toggle-button mb-0" for="btnchk-pay" [class.active]="payoutDetails?.isPayout">
-                            <input type="checkbox" id="btnchk-pay" name="isPayout">
+                            <input type="checkbox" id="btnchk-pay" name="isPayout" [disabled]="true" [ngModel] = "payoutDetails?.isPayout">
                             <label class="toggle-button-switch"></label>
-                            <span class="btnchk-yes">Yes</span>
-                            <span class="btnchk-no">No</span>
+                            <span class="btnch-yes">Yes</span>
+                            <span class="btnch-no">No</span>
                           </label>
                         </h4>
                       </div>
@@ -59,7 +59,7 @@
                 
                     </div>
       
-                </form>
+                <!-- </form> -->
       
             </div>
               

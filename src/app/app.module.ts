@@ -37,6 +37,7 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { ClientListComponent } from './client-management/client-list/client-list.component';
 import { ClientDetailsComponent } from './client-management/client-details/client-details.component';
 import { PayoutManagementComponent } from './payout-management/payout-management.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { PayoutManagementComponent } from './payout-management/payout-management
     BrowserModule,
     MatPaginatorModule,
     TreeTableModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatGridListModule
   ],
   providers: [
     {

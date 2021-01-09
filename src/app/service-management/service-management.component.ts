@@ -10,6 +10,7 @@ import {ServiceManagementService} from '../service/service-management.service';
 })
 export class ServiceManagementComponent implements OnInit {
   dataSource = new MatTableDataSource();
+  servicesList: any;
   serviceForm: FormGroup;
   columnTitle: string[] | undefined;
   rowCount: number = 0;
@@ -30,15 +31,10 @@ export class ServiceManagementComponent implements OnInit {
       serviceName: [''],
       serviceImage: ['']
     });
-    // this.dataSource.data = [
-    //   { url: 'https://swivr-dev.s3.us-east-2.amazonaws.com/customer/image-f037f40a-ec11-4a8b-abce-ba997260ed18.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4GG3GNFSZGKCSXRI%2F20210104%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20210104T130759Z&X-Amz-Expires=3600&X-Amz-Signature=48f0922bb49c36e9132ea93fdddebcecb3fb2e9b3fb1eb6e66e8cbb866246720&X-Amz-SignedHeaders=host', name: 'Haircut' },
-    //   { url: 'https://swivr-dev.s3.us-east-2.amazonaws.com/customer/image-f037f40a-ec11-4a8b-abce-ba997260ed18.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4GG3GNFSZGKCSXRI%2F20210104%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20210104T130759Z&X-Amz-Expires=3600&X-Amz-Signature=48f0922bb49c36e9132ea93fdddebcecb3fb2e9b3fb1eb6e66e8cbb866246720&X-Amz-SignedHeaders=host', name: 'Facial' },
-    //   { url: 'https://swivr-dev.s3.us-east-2.amazonaws.com/customer/image-f037f40a-ec11-4a8b-abce-ba997260ed18.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4GG3GNFSZGKCSXRI%2F20210104%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20210104T130759Z&X-Amz-Expires=3600&X-Amz-Signature=48f0922bb49c36e9132ea93fdddebcecb3fb2e9b3fb1eb6e66e8cbb866246720&X-Amz-SignedHeaders=host', name: 'Menicure' }
-    //   ];
   }
 
   ngOnInit() {
-    this.serviceText='Create Service';
+    this.serviceText = 'Create Service';
     this.getServiceList(0, 0);
   }
 
@@ -61,20 +57,13 @@ export class ServiceManagementComponent implements OnInit {
 
     this.serviceManagementService.serviceList().subscribe((data: any) => {
       if (data.statusCode === 200) {
+        this.servicesList = data.list;
+        console.log(this.servicesList)
         this.dataSource.data = data.list;
         this.rowCount = data.list.length;
       }
     });
   }
-
-  // search(searchValue) {
-  //   this.showResultLabel = true;
-  //   this.searchValue = searchValue;
-  //   this.paginator.pageIndex = 0;
-  //   this.getRoles(0,0);
-  //   this.toResult = true;
-  // }
-
 
   onChange(event: any) {
     this.event = event.pageIndex;
@@ -130,6 +119,13 @@ export class ServiceManagementComponent implements OnInit {
     this.serviceForm.patchValue( {
       serviceName: data.serviceName
     });
+  }
 
+  serviceDelete(serviceId: number) {
+    this.serviceManagementService.serviceDelete(serviceId).subscribe((data: any) => {
+      if (data.statusCode === 200) {
+        this.getServiceList(0, 0);
+      }
+    });
   }
 }

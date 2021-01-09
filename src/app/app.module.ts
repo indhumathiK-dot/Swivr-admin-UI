@@ -37,6 +37,7 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { ClientListComponent } from './client-management/client-list/client-list.component';
 import { ClientDetailsComponent } from './client-management/client-details/client-details.component';
 import { SettingsComponent } from './settings/settings.component';
+import { PayoutManagementComponent } from './payout-management/payout-management.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
@@ -51,7 +52,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     TransactionHistoryComponent,
     ClientListComponent,
     ClientDetailsComponent,
-    SettingsComponent
+    SettingsComponent,
+    PayoutManagementComponent
   ],
   imports: [
     BrowserModule,

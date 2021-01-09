@@ -25,7 +25,6 @@
 .mainnav {
   font-family: Raleway, sans-serif;
   font-style: normal;
-  padding-top: 20px;
 }
 
 
@@ -90,46 +89,13 @@
   height: fit-content;
 }
 
-.fd-side-bar li a {
-  padding: 5px 0 14px 0;
-  text-decoration: none;
-  font-size: 13px;
-  color: #414141;
-  display: block;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.my-icon {
-  color: grey;
-}
-
-.padding-rgt {
-  margin-right: 10px;
-}
-
-.margin-lft {
-  margin-left: 12px;
-}
-
-
 .menu-hover {
   position: relative;
+  cursor: pointer;
 }
-
 .menu-hover:hover {
   background-color: #4BD13D;
 }
-
-.sidebar-hover:hover {
-  background: #4BD13D;
-}
-
-.sidebar-hover {
-  padding: 0 20px;
-}
-
 .sidenav .menu-hover ul {
   background: none repeat scroll 0 0 #f1f3f4;
   left: 100%;
@@ -177,7 +143,7 @@
 .side-header-name {
   font-size: 25px;
   color: #ffffff;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 .header_search_call {
   padding-left: 250px;
@@ -186,4 +152,25 @@
 }
 .active-menu {
   background: #4BD13D;
+}
+
+
+
+#ticketCom {
+  background: white;
+  font-family: Raleway, sans-serif;
+}
+#tickets-cont-dev {
+  background: white;
+  min-height: 700px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+}
+
+#tickets-cont-dev mat-card {
+  margin:  0;
+}
+#ticketCom .content {
+  background: #f2f3f5;
+  padding: 15px;
 }

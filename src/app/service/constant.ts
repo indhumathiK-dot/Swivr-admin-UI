@@ -18,5 +18,7 @@ export const API = {
   GET_APPOINTMENT_LIST: API_ENDPOINT_URL + '/admin/appointmentList',
   CLIENT_LIST: API_ENDPOINT_URL + '/admin/getCustomerList',
   CLIENT_DETAILS: API_ENDPOINT_URL + '/admin/getCustomerDetails',
-  GET_CLIENT_APPOINTMENT_LIST: API_ENDPOINT_URL + '/admin/appointmentList'
+  GET_CLIENT_APPOINTMENT_LIST: API_ENDPOINT_URL + '/admin/appointmentList',
+  PAYOUT_DETAILS: API_ENDPOINT_URL + '/admin/getPayoutDetails',
+  ADD_UPDATE_PAYOUT: API_ENDPOINT_URL + '/admin/addUpdatePayout'
 };

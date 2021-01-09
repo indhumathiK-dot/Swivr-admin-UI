@@ -1,34 +1,45 @@
-<h1 class="serivice-title">Transaction History</h1>
+<div id="ticketCom">
+  <!-- Main content -->
+  <section class="content">
+    <div id="tickets-cont-dev">
+
 <div>
   <section>
     <div>
 <!--      <section class="panel">-->
         <div class="panel-body">
 
-            <ul class="list-group" *ngFor="let activity of dataSource">
+            <ul class="comments-list" *ngFor="let activity of dataSource">
               <li class="list-group-item">
-                <a class="pull-left mr-sm">
-                  <img class="img-circle" src="{{activity.custProfileUrl}}">
-                </a>
-                <a class="clear">
+                <div class="row">
+                  <div class="col-md-1 image-UI">
+                    <img class="img-circle" src="{{activity.custProfileUrl}}">
+                  </div>
+                <div class="col-md-11">
+                <div class="content-split">
                   <strong class="block">
-                    &nbsp;&nbsp;&nbsp;{{activity.name.substring(0, 1).toUpperCase() +
+                    {{activity.name.substring(0, 1).toUpperCase() +
                   activity.name.substring(1).toLowerCase()}}
                   </strong>
-                </a>
-                <a class="pull-right">
-                 {{ activity.createdTime | date:'medium' }}
-                </a>
-                <div class="message" style="font-weight: bold; color: #337ab7">
-                  <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                  <span class="pull-right">
+                    {{ activity.createdTime | date:'medium' }}
+                  </span>
+                </div>
+
+                <div class="message">
                   {{activity.message}}<strong style="color:#007bff">
                 </strong>
+                </div>
+                </div>
                 </div>
               </li>
             </ul>
 
         </div>
 <!--      </section>-->
+    </div>
+  </section>
+</div>
     </div>
   </section>
 </div>

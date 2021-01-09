@@ -1,11 +1,7 @@
-<div id="ticketCom">
-    <!-- Main content -->
-    <section class="content">
-      <div class="">
-        <div id="tickets-cont-dev">
-  
-            <div class="details" *ngIf="!isUpdate">
-            
+
+
+<div class="details" *ngIf="!isUpdate">
+
                 <!-- <form [formGroup]="payoutForm"> -->
                     <h3 class="title title-payout">Payout details <span><mat-icon class="create-icon" (click)="editUpdate()">create</mat-icon></span></h3>
                     <div class="line-height">
@@ -13,7 +9,7 @@
                       <div class="left-half">
                         <div class="bold-font">Payout</div>
                       </div>
-      
+
                       <div class="right-half">
                         <h4 class="heading mb-20">
                           <label class="toggle-button mb-0" for="btnchk-pay" [class.active]="payoutDetails?.isPayout">
@@ -28,9 +24,9 @@
                       <div class="invLine"></div>
                         <div class="left-half"><div class="bold-font">Payout: </div></div>
                         <div class="right-half"><div><span><strong>{{payoutDetails?.payout}} %</strong></span></div></div>
-    
+
                         <h3 class="title">Stripe details</h3>
-      
+
                         <div class="invLine"></div>
                         <div class="left-half">
                             <div class="bold-font">Stripe Account Name:</div>
@@ -38,33 +34,33 @@
                         <div class="right-half">
                             <div><span><strong>SWIVR-DEV</strong></span></div>
                         </div>
-    
+
                         <div class="invLine"></div>
                         <div class="left-half">
                             <div class="bold-font">Publishable key:</div>
                         </div>
                         <div class="right-half">
                             <div><span><strong>{{payoutDetails?.publicKey}}</strong></span></div>
-                            
+
                         </div>
-      
+
                         <div class="invLine"></div>
                         <div class="left-half">
                             <div class="bold-font">Secret key:</div>
                         </div>
                         <div class="right-half">
                             <div><span><strong>{{payoutDetails?.privateKey}}</strong></span></div>
-                        
+
                         </div>
-                
+
                     </div>
       
                 <!-- </form> -->
       
             </div>
-              
-          <div class="details" *ngIf="isUpdate">
-            
+
+<div class="details" *ngIf="isUpdate">
+
             <form [formGroup]="payoutForm">
               <h3 class="title title-payout">Payout details</h3>
               <div class="line-height">
@@ -95,10 +91,10 @@
                   <input matInput placeholder="Payout" formControlName="payout">
                 </mat-form-field>
               </div>
-           
+
 
               <h3 class="title">Stripe details</h3>
-  
+
               <div class="invLine"></div>
               <div class="left-half">
                 <div class="bold-font">Stripe Account Name</div>
@@ -120,7 +116,7 @@
                       <input matInput placeholder="Publishable key" formControlName="publishableKey">
                     </mat-form-field>
                   </div>
-  
+
               <div class="invLine"></div>
               <div class="left-half">
                 <div class="bold-font">Secret key</div>
@@ -131,25 +127,21 @@
                   <input type="text" matInput placeholder="Secret key" formControlName="secretkey">
                 </mat-form-field>
               </div>
-            
+
               <div class="invLine"></div>
-  
-  
+
+
               <div class="update-button">
                 <button type="submit" mat-flat-button color="primary"
                         class="display edit-icon" (click)="onSubmit()">Save</button>
-  
+
                 <button type="submit" mat-flat-button
                         class="display cancel-button" (click)="cancel()">Cancel</button>
               </div>
-  
+
             </div>
-  
+
             </form>
-  
+
           </div>
-  
-        </div>
-      </div>
-    </section>
-  </div>
+

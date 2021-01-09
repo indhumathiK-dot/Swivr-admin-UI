@@ -62,30 +62,6 @@ table {
   color: gray;
 }
 
-#ticketCom {
-  background: white;
-}
-
-#tickets-cont-dev {
-  background: white;
-  min-height: 700px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
-}
-
-#tickets-cont-dev mat-card {
-  margin:  0;
-}
-
-#ticketCom .content {
-  background: #f2f3f5;
-  padding: 15px;
-}
-.image-width {
-  width: 43px;
-}
-
-
 @media(max-width:320px){
   .right-half {
     margin-left: 38px;

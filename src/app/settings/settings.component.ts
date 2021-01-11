@@ -1,5 +1,8 @@
 import {Component, OnInit, ViewChild,} from '@angular/core';
 import {MatTabGroup} from "@angular/material/tabs";
+import {MatTableDataSource} from "@angular/material/table";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {ServiceManagementService} from "../service/service-management.service";
 
 @Component({
   selector: 'app-settings',
@@ -8,55 +11,135 @@ import {MatTabGroup} from "@angular/material/tabs";
 })
 
 export class SettingsComponent implements OnInit {
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource();
+  servicesList: any;
+  serviceForm: FormGroup;
+  columnTitle: string[] | undefined;
+  rowCount: number = 0;
+  pageSize: number = 15;
+  prevPageIndex: number | undefined = 0;
+  start: number = 0;
+  limit: number = 15;
+  event: any;
+  pageSizeArray = [15, 50, 100];
+  serviceText: string | undefined;
+  public isUpdate: boolean = false;
+  private serviceId: any;
 
-  constructor() {
+  constructor(public formBuilder: FormBuilder,
+              public serviceManagementService: ServiceManagementService) {
+    this.columnTitle = ['ID', 'National Holiday', 'Action'];
+    this.serviceForm = this.formBuilder.group({
+      serviceName: [''],
+      serviceImage: ['']
+    });
   }
 
-  ngOnInit(): void {
-  }
 
-  name = "Angular";
+  public demo1TabIndex = 0;
 
-  public demo1TabIndex = 1;
   public demo1BtnClick() {
     const tabCount = 3;
     this.demo1TabIndex = (this.demo1TabIndex + 1) % tabCount;
   }
 
-  // ============
-  // HELPER
-  // ============
-
-  private goToNextTabIndex(tabGroup: MatTabGroup) {
-    if (!tabGroup || !(tabGroup instanceof MatTabGroup)) return;
-
-    const tabCount = tabGroup._tabs.length;
-    // @ts-ignore
-    tabGroup.selectedIndex = (tabGroup.selectedIndex + 1) % tabCount;
+  ngOnInit() {
+    this.serviceText = 'Create Service';
+    this.getServiceList(0, 0);
   }
 
-}
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+  getServiceList(count = 0, previousPageIndex = 0) {
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+    if (count === 0) {
+      if (count <= previousPageIndex) {
+        this.start = 0;
+      } else {
+        this.start += this.pageSize;
+      }
+    } else {
+      this.start = count * this.pageSize;
+    }
+    let filter = {
+      limit: this.limit,
+      start: this.start,
+      search: '',
+    };
 
+    this.serviceManagementService.serviceList().subscribe((data: any) => {
+      if (data.statusCode === 200) {
+        this.servicesList = data.list;
+        console.log(this.servicesList)
+        this.dataSource.data = data.list;
+        this.rowCount = data.list.length;
+      }
+    });
+  }
+
+  onChange(event: any) {
+    this.event = event.pageIndex;
+    if (this.limit !== event.pageSize) {
+      this.start -= event.pageSize;
+      this.limit = event.pageSize;
+      this.pageSize = event.pageSize;
+    }
+    this.prevPageIndex = event.previousPageIndex;
+    this.getServiceList(event.pageIndex, event.previousPageIndex);
+  }
+
+  addUpdateService() {
+    if (this.isUpdate) {
+      let data = {
+        id: this.serviceId,
+        serviceName: this.serviceForm.value.serviceName
+      };
+      this.serviceManagementService.serviceUpdate(data).subscribe((data: any) => {
+        if (data.statusCode === 200) {
+          this.serviceText = 'Create Service';
+          this.serviceForm.reset();
+          this.getServiceList(0, 0);
+        }
+      });
+    } else {
+      let data = {
+        serviceName: this.serviceForm.value.serviceName
+      };
+      this.serviceManagementService.serviceAdd(data).subscribe((data: any) => {
+        if (data.statusCode === 201) {
+          this.serviceText = 'Create Service';
+          this.serviceForm.reset();
+          this.getServiceList(0, 0);
+        }
+      });
+    }
+
+  }
+
+
+  cancel() {
+    this.serviceText = 'Create Service';
+    this.serviceId = 0;
+    this.isUpdate = false;
+    this.serviceForm.reset();
+  }
+
+  editUpdate(data: any) {
+    this.serviceText = 'Update Service';
+    this.serviceId = data.id;
+    this.isUpdate = true;
+    this.serviceForm.patchValue( {
+      serviceName: data.serviceName
+    });
+  }
+
+  serviceDelete(serviceId: number) {
+    this.serviceManagementService.serviceDelete(serviceId).subscribe((data: any) => {
+      if (data.statusCode === 200) {
+        this.getServiceList(0, 0);
+      }
+    });
+  }
+
+
+}
 
 

@@ -11,6 +11,6 @@ export class transactionHistoryService {
   constructor(private http: HttpClient) { }
 
   getTransactionHistory(data: any){
-    return this.http.get(API.TRANSACTION_HIST0RY, data);
+    return this.http.get(API.TRANSACTION_HISTORY + '?start=' + data.start + '&limit=' + data.limit);
   }
 }

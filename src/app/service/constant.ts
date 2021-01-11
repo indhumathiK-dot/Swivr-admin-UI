@@ -11,7 +11,7 @@ export const API = {
   SERVICE_LIST: API_ENDPOINT_URL + '/appointments/defaultServices/list',
   SERVICE_ADD: API_ENDPOINT_URL + '/appointments/defaultServices/add',
   SERVICE_UPDATE: API_ENDPOINT_URL + '/appointments/defaultServices/update',
-  TRANSACTION_HIST0RY: API_ENDPOINT_URL + '/Admin/AdminController_transactionHistory',
+  TRANSACTION_HISTORY: API_ENDPOINT_URL + '/admin/transactionHistory',
   SERVICE_DELETE: API_ENDPOINT_URL + '/appointments/defaultServices/delete',
   COSMETOLOGIST_LIST: API_ENDPOINT_URL + '/admin/getCosmetologistList',
   COSMETOLOGIST_DETAILS: API_ENDPOINT_URL + '/admin/cosmetologistDetails',
@@ -20,5 +20,9 @@ export const API = {
   CLIENT_DETAILS: API_ENDPOINT_URL + '/admin/getCustomerDetails',
   GET_CLIENT_APPOINTMENT_LIST: API_ENDPOINT_URL + '/admin/appointmentList',
   PAYOUT_DETAILS: API_ENDPOINT_URL + '/admin/getPayoutDetails',
-  ADD_UPDATE_PAYOUT: API_ENDPOINT_URL + '/admin/addUpdatePayout'
+  ADD_UPDATE_PAYOUT: API_ENDPOINT_URL + '/admin/addUpdatePayout',
+  ADD_UPDATE_EMAIL_TEMPLATE: API_ENDPOINT_URL + '/admin/updateEmailTemplate',
+  DELETE_EMAIL_TEMPLATE: API_ENDPOINT_URL + '/admin/deleteEmailTemplate',
+  GET_EMAIL_TEMPLATE: API_ENDPOINT_URL + '/admin/getEmailTemplate'
+  
 };

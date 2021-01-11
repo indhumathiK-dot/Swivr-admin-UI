@@ -20,9 +20,6 @@ export class ServiceManagementService {
   serviceUpdate(data: any){
     return this.http.put(API.SERVICE_UPDATE, data);
   }
-  geTransactionHistory(data: any){
-    return this.http.get(API.TRANSACTION_HIST0RY, data);
-  }
 
   serviceDelete(serviceId: number){
     return this.http.delete(API.SERVICE_DELETE + '?serviceId=' + serviceId);

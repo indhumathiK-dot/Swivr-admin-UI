@@ -1,7 +1,10 @@
 <div>
   <section>
     <div>
-        <div class="panel-body">
+        <div class="panel-body search-results" infiniteScroll
+              [infiniteScrollDistance]="2"
+              [infiniteScrollThrottle]="50"
+              (scrolled)="onScroll()">
 
             <ul class="comments-list" *ngFor="let activity of dataSource">
               <li class="list-group-item">
@@ -12,8 +15,8 @@
                 <div class="col-md-11">
                 <div class="content-split">
                   <strong class="block">
-                    {{activity.name.substring(0, 1).toUpperCase() +
-                  activity.name.substring(1).toLowerCase()}}
+                    {{activity.customerName.substring(0, 1).toUpperCase() +
+                  activity.customerName.substring(1).toLowerCase()}}
                   </strong>
                   <span class="pull-right">
                     {{ activity.createdTime | date:'medium' }}

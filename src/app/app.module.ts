@@ -39,6 +39,8 @@ import { ClientDetailsComponent } from './client-management/client-details/clien
 import { SettingsComponent } from './settings/settings.component';
 import { PayoutManagementComponent } from './payout-management/payout-management.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { EmailTemplateComponent } from './settings/email-template/email-template.component';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ClientListComponent,
     ClientDetailsComponent,
     SettingsComponent,
-    PayoutManagementComponent
+    PayoutManagementComponent,
+    EmailTemplateComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatPaginatorModule,
     TreeTableModule,
     InfiniteScrollModule,
-    MatGridListModule
+    MatGridListModule,
+    CKEditorModule
   ],
   providers: [
     {

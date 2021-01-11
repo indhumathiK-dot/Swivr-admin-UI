@@ -25,7 +25,7 @@
               <li class="menu-hover" [ngClass]="router.url === '/client' || type === 'Client Management' ? 'active-menu': 'inactive-menu'"><a (click)="navigateMenu('/client')">Client Management</a> </li>
               <li class="menu-hover" [ngClass]="router.url === '/payout' || type === 'Payout Management' ? 'active-menu': 'inactive-menu'">  <a (click)="navigateMenu('/payout')">Payout Management</a> </li>
               <li class="menu-hover" [ngClass]="router.url === '/transactionHistory' ? 'active-menu': 'inactive-menu'">  <a (click)="navigateMenu('/transactionHistory')">Transaction History</a> </li>
-              <li class="menu-hover">  <a [routerLink]="'/collections/new-arrival/New Arrival'">Settings</a> </li>
+              <li class="menu-hover" [ngClass]="router.url === '/settings'  ? 'active-menu': 'inactive-menu'"><a (click)="navigateMenu('/settings')">Settings</a> </li>
 
             </ul>
 
@@ -59,9 +59,11 @@
           <div *ngIf="router.url === '/client'">Client Management</div>
           <div *ngIf="router.url === '/payout'">Payout Management</div>
           <div *ngIf="router.url === '/transactionHistory'">Transaction History</div>
+          <div *ngIf="router.url === '/settings'">Settings</div>
           <div *ngIf="router.url !== '/profile' && router.url !== '/cosmetologist' &&
            router.url !== '/services' && router.url !== '/client' &&
-           router.url !== '/payout' && router.url !== '/transactionHistory'">{{type}}</div>
+           router.url !== '/payout' && router.url !== '/transactionHistory' &&
+           router.url !== '/settings'">{{type}}</div>
           <app-header></app-header>
         </div>
       </mat-toolbar>

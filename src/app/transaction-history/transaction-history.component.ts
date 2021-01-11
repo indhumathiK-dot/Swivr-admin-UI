@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ServiceManagementService} from "../service/service-management.service";
+import {transactionHistoryService} from "../service/transaction-history.service";
 
 @Component({
   selector: 'app-transaction-history',
@@ -18,7 +18,7 @@ export class TransactionHistoryComponent implements OnInit {
   pageSizeArray = [15, 50, 100];
   // private data:;
 
-  constructor(private serviceManagementService:ServiceManagementService) {
+  constructor(private transactionHistoryService: transactionHistoryService) {
     this.columnTitle = ['Customer Profile', 'Customer Name', 'Transaction Id', 'Appointment Id', 'Cosmetologist Name', 'Message', 'Action'];
   }
 
@@ -27,7 +27,7 @@ export class TransactionHistoryComponent implements OnInit {
       start : 0,
       limit : 10
     };
-    this.serviceManagementService.getTransactionHistory(data).subscribe((res: any) => {
+    this.transactionHistoryService.getTransactionHistory(data).subscribe((res: any) => {
       if (res.statusCode === 200) {
         console.log(res)
       }

@@ -9,6 +9,7 @@ import {CosmetologistDetailsComponent} from './cosmetologist-management/cosmetol
 import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
 import {ClientListComponent} from './client-management/client-list/client-list.component';
 import {ClientDetailsComponent} from './client-management/client-details/client-details.component';
+import {SettingsComponent} from "./settings/settings.component";
 import { PayoutManagementComponent } from './payout-management/payout-management.component';
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'transactionHistory', component: TransactionHistoryComponent},
   {path: 'client', component: ClientListComponent},
   {path: 'client/details/:id', component: ClientDetailsComponent},
+  {path: 'settings', component: SettingsComponent},
   {path: 'payout', component: PayoutManagementComponent},
   ];
 

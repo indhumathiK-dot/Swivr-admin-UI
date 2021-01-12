@@ -17,7 +17,8 @@ export class ClientServiceService {
     return this.http.get(API.CLIENT_DETAILS + '?custKey=' + userKey);
   }
 
-  getAppointmentList(key: any, type: any, start: number, limit: number){
-    return this.http.get(API.GET_CLIENT_APPOINTMENT_LIST + '?key=' + key + '&type=' + type + '&start=' + start + '&limit=' + limit);
+  getAppointmentList(key: any, type: any, start: number, limit: number, timeZone: string){
+      timeZone = timeZone.replace('+', '%2B');
+    return this.http.get(API.GET_CLIENT_APPOINTMENT_LIST + '?key=' + key + '&type=' + type + '&start=' + start + '&limit=' + limit + '&timeZone=' + timeZone);
   }
 }

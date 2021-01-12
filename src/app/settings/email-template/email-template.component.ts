@@ -12,6 +12,7 @@ export class EmailTemplateComponent implements OnInit {
   emailTemplatesForm: FormGroup;
   ckeConfig: any;
   templateList: any[] = [];
+  isUpdate: boolean = false;
 
   constructor(private fb: FormBuilder, private emailTemplateService: EmailTemplateService) { 
     this.emailTemplatesForm = this.fb.group({
@@ -74,6 +75,7 @@ export class EmailTemplateComponent implements OnInit {
   }
 
   getTemplate(data: any) {
+    this.isUpdate = true;
 
     this.emailTemplatesForm.patchValue({
       templatetype: data.emailType,

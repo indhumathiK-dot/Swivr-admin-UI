@@ -18,6 +18,7 @@ export class ClientDetailsComponent implements OnInit {
   public appointmentCount: number = 0;
   private start: number = 0;
   private limit: number = 10;
+  timezone: any;
 
   constructor(private clientServiceService: ClientServiceService,
               private route: ActivatedRoute,
@@ -29,6 +30,23 @@ export class ClientDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let offset = new Date().getTimezoneOffset();
+
+    if (offset < 0) {
+      let extraZero = '';
+      if (-offset % 60 < 10)
+        extraZero = '0';
+        let hours = Math.ceil(offset / - 60) < 10 ? '0' + Math.ceil(offset / - 60) : Math.ceil(offset / - 60);
+      this.timezone = '+' + hours + ':' + extraZero + (-offset % 60);
+      console.log(this.timezone, Math.ceil(offset / - 60), -offset % 60);
+    } else {
+      let extraZero = '';
+      if (offset % 60 < 10)
+        extraZero = '0';
+        let hours = Math.floor(offset / 60) < 10 ? extraZero + Math.floor(offset / 60) : Math.floor(offset / 60);
+      this.timezone = '-' + hours + ':' + extraZero + (offset % 60);
+    }
+
     this.getClientDetails();
     this.getAppointmentDetails(10, 0);
   }
@@ -43,7 +61,7 @@ export class ClientDetailsComponent implements OnInit {
 
   getAppointmentDetails(limit: number, start: number) {
 
-    this.clientServiceService.getAppointmentList(this.custKey, 'CUSTOMER', start, limit).subscribe((data: any) => {
+    this.clientServiceService.getAppointmentList(this.custKey, 'CUSTOMER', start, limit, this.timezone).subscribe((data: any) => {
       if (data.statusCode === 200) {
         this.appointmentList = this.appointmentList.concat(data.list);
         // this.appointmentList = data.list;

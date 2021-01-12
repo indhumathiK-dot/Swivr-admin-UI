@@ -11,10 +11,8 @@ import {ServiceManagementService} from "../service/service-management.service";
 })
 
 export class SettingsComponent implements OnInit {
-  dataSource = new MatTableDataSource();
   servicesList: any;
-  serviceForm: FormGroup;
-  columnTitle: string[] | undefined;
+  // serviceForm: FormGroup;
   rowCount: number = 0;
   pageSize: number = 15;
   prevPageIndex: number | undefined = 0;
@@ -28,11 +26,6 @@ export class SettingsComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder,
               public serviceManagementService: ServiceManagementService) {
-    this.columnTitle = ['ID', 'National Holiday', 'Action'];
-    this.serviceForm = this.formBuilder.group({
-      serviceName: [''],
-      serviceImage: ['']
-    });
   }
 
 
@@ -45,34 +38,6 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.serviceText = 'Create Service';
-    this.getServiceList(0, 0);
-  }
-
-  getServiceList(count = 0, previousPageIndex = 0) {
-
-    if (count === 0) {
-      if (count <= previousPageIndex) {
-        this.start = 0;
-      } else {
-        this.start += this.pageSize;
-      }
-    } else {
-      this.start = count * this.pageSize;
-    }
-    let filter = {
-      limit: this.limit,
-      start: this.start,
-      search: '',
-    };
-
-    this.serviceManagementService.serviceList().subscribe((data: any) => {
-      if (data.statusCode === 200) {
-        this.servicesList = data.list;
-        console.log(this.servicesList)
-        this.dataSource.data = data.list;
-        this.rowCount = data.list.length;
-      }
-    });
   }
 
   onChange(event: any) {
@@ -83,60 +48,6 @@ export class SettingsComponent implements OnInit {
       this.pageSize = event.pageSize;
     }
     this.prevPageIndex = event.previousPageIndex;
-    this.getServiceList(event.pageIndex, event.previousPageIndex);
-  }
-
-  addUpdateService() {
-    if (this.isUpdate) {
-      let data = {
-        id: this.serviceId,
-        serviceName: this.serviceForm.value.serviceName
-      };
-      this.serviceManagementService.serviceUpdate(data).subscribe((data: any) => {
-        if (data.statusCode === 200) {
-          this.serviceText = 'Create Service';
-          this.serviceForm.reset();
-          this.getServiceList(0, 0);
-        }
-      });
-    } else {
-      let data = {
-        serviceName: this.serviceForm.value.serviceName
-      };
-      this.serviceManagementService.serviceAdd(data).subscribe((data: any) => {
-        if (data.statusCode === 201) {
-          this.serviceText = 'Create Service';
-          this.serviceForm.reset();
-          this.getServiceList(0, 0);
-        }
-      });
-    }
-
-  }
-
-
-  cancel() {
-    this.serviceText = 'Create Service';
-    this.serviceId = 0;
-    this.isUpdate = false;
-    this.serviceForm.reset();
-  }
-
-  editUpdate(data: any) {
-    this.serviceText = 'Update Service';
-    this.serviceId = data.id;
-    this.isUpdate = true;
-    this.serviceForm.patchValue( {
-      serviceName: data.serviceName
-    });
-  }
-
-  serviceDelete(serviceId: number) {
-    this.serviceManagementService.serviceDelete(serviceId).subscribe((data: any) => {
-      if (data.statusCode === 200) {
-        this.getServiceList(0, 0);
-      }
-    });
   }
 
 

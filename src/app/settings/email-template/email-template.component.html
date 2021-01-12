@@ -27,7 +27,7 @@
 
                 <div class="form-group form-default">
                     <mat-form-field class="example-full-width" appearance="outline" style="margin-top: 1.75em; width: 100%;">
-                        <input type="text" matInput placeholder="Email Template Type *" aria-label="Number"
+                        <input type="text" matInput placeholder="Email Template Type *" aria-label="Number" readonly [disabled]="isUpdate ? true : false"
                                 name="templatetype" formControlName="templatetype" required>
                         <mat-label>Email Template Type</mat-label>
                     </mat-form-field>

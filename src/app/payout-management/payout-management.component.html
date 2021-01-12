@@ -7,23 +7,31 @@
                     <div class="line-height">
                       <div class="invLine"></div>
                       <div class="left-half">
-                        <div class="bold-font">Payout</div>
+                        <div class="bold-font">Payout:</div>
                       </div>
 
                       <div class="right-half">
-                        <h4 class="heading mb-20">
+                        <h4 class="heading mb-20" *ngIf="payoutDetails?.isPayout">
                           <label class="toggle-button mb-0" for="btnchk-pay" [class.active]="payoutDetails?.isPayout">
-                            <input type="checkbox" id="btnchk-pay" name="isPayout" [disabled]="true" [ngModel] = "payoutDetails?.isPayout">
-                            <label class="toggle-button-switch"></label>
+                            <input type="checkbox" id="btnchk-pay" name="isPayout" [disabled]="true">
+                            <label class="toggle-button-switch switch"></label>
                             <span class="btnch-yes">Yes</span>
+                            <!-- <span class="btnch-no">No</span> -->
+                          </label>
+                        </h4>
+                        <h4 class="heading mb-20" *ngIf="!payoutDetails?.isPayout">
+                          <label class="toggle-button mb-0" for="btnchk-pay">
+                            <input type="checkbox" id="btnchk-pay" name="isPayout" [disabled]="true">
+                            <label class="toggle-button-switch"></label>
+                            <!-- <span class="btnch-yes">Yes</span> -->
                             <span class="btnch-no">No</span>
                           </label>
                         </h4>
                       </div>
 
                       <div class="invLine"></div>
-                        <div class="left-half"><div class="bold-font">Payout: </div></div>
-                        <div class="right-half"><div><span><strong>{{payoutDetails?.payout}} %</strong></span></div></div>
+                        <div class="left-half" *ngIf="payoutDetails?.isPayout"><div class="bold-font">Payout Value: </div></div>
+                        <div class="right-half" *ngIf="payoutDetails?.isPayout"><div><span><strong>{{payoutDetails?.payout}} %</strong></span></div></div>
 
                         <h3 class="title">Stripe details</h3>
 
@@ -82,10 +90,10 @@
 
               <div class="invLine"></div>
 
-              <div class="left-half">
+              <div class="left-half" *ngIf="payoutDetails?.isPayout">
                 <div class="bold-font">Payout Value</div>
               </div>
-              <div class="right-half">
+              <div class="right-half" *ngIf="payoutDetails?.isPayout">
                 <mat-form-field appearance="outline" class="w-100">
                   <mat-label class="label-name">Payout</mat-label>
                   <input matInput placeholder="Payout" formControlName="payout">

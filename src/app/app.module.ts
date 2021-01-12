@@ -41,6 +41,7 @@ import { PayoutManagementComponent } from './payout-management/payout-management
 import {MatGridListModule} from '@angular/material/grid-list';
 import { EmailTemplateComponent } from './settings/email-template/email-template.component';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { NationalLeaveComponent } from './settings/national-leave/national-leave.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
     ClientDetailsComponent,
     SettingsComponent,
     PayoutManagementComponent,
-    EmailTemplateComponent
+    EmailTemplateComponent,
+    NationalLeaveComponent
   ],
   imports: [
     BrowserModule,

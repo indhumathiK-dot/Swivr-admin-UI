@@ -23,6 +23,10 @@ export const API = {
   ADD_UPDATE_PAYOUT: API_ENDPOINT_URL + '/admin/addUpdatePayout',
   ADD_UPDATE_EMAIL_TEMPLATE: API_ENDPOINT_URL + '/admin/updateEmailTemplate',
   DELETE_EMAIL_TEMPLATE: API_ENDPOINT_URL + '/admin/deleteEmailTemplate',
-  GET_EMAIL_TEMPLATE: API_ENDPOINT_URL + '/admin/getEmailTemplate'
+  GET_EMAIL_TEMPLATE: API_ENDPOINT_URL + '/admin/getEmailTemplate',
+  ADD_NATIONAL_HOLIDAY: API_ENDPOINT_URL + '/appointments/admin/addNationalHolidays',
+  UPDATE_NATIONAL_HOLIDAY: API_ENDPOINT_URL + '/appointments/admin/updateNationalHolidays',
+  REMOVE_NATIONAL_HOLIDAY: API_ENDPOINT_URL + '/appointments/admin/removeNationalHolidays',
+  NATIONAL_HOLIDAY_LIST: API_ENDPOINT_URL + '/appointments/admin/listNationalHolidays'
   
 };

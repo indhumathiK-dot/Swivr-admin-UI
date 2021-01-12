@@ -129,7 +129,16 @@
   display: block;
 }
 
-.btnch-no {
+.toggle-button .switch {
+  left: 31px !important;
+}
+
+.btnch-yes {
+  position: absolute;
   margin-left: 7px;
+}
+
+.btnch-no {
+  margin-left: 25px;
   position: absolute;
 }
